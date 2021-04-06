@@ -14,7 +14,7 @@ CREATE TABLE continent (
 CREATE TABLE country (
     id_country varchar(8) NOT NULL,
     id_continent varchar(5) NOT NULL,
-    name varchar(30) NOT NULL,
+    name varchar(50) NOT NULL,
     population int NOT NULL,
     year_census int NOT NULL,
     CONSTRAINT country_pk PRIMARY KEY (id_country)
@@ -31,7 +31,6 @@ CREATE TABLE day_departament (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT day_departament_pk PRIMARY KEY (id_day_departament)
@@ -48,7 +47,6 @@ CREATE TABLE day_municipio (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT day_municipio_pk PRIMARY KEY (id_day_municipio)
@@ -65,7 +63,6 @@ CREATE TABLE day_world (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT day_world_pk PRIMARY KEY (id_day_world)
@@ -93,7 +90,6 @@ CREATE TABLE h_day_departament (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT h_day_departament_pk PRIMARY KEY (id_h_day_departament)
@@ -111,7 +107,6 @@ CREATE TABLE h_day_municipio (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT h_day_municipio_pk PRIMARY KEY (id_h_day_municipio)
@@ -121,7 +116,7 @@ CREATE TABLE h_day_municipio (
 CREATE TABLE h_day_world (
     id_h_day_world int NOT NULL AUTO_INCREMENT,
     id_day_world int NOT NULL,
-    id_country int NOT NULL,
+    id_country varchar(8) NOT NULL,
     date date NOT NULL,
     new_cases int NOT NULL,
     deaths int NOT NULL,
@@ -129,7 +124,6 @@ CREATE TABLE h_day_world (
     vaccine int NOT NULL,
     accumulated int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT h_day_world_pk PRIMARY KEY (id_h_day_world)
@@ -142,7 +136,6 @@ CREATE TABLE h_visit (
     date date NOT NULL,
     count int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT h_visit_pk PRIMARY KEY (id_h_visit)
@@ -164,7 +157,6 @@ CREATE TABLE visit (
     date date NOT NULL,
     count int NOT NULL,
     tx_date datetime NOT NULL,
-    tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
     CONSTRAINT visit_pk PRIMARY KEY (id_visit)

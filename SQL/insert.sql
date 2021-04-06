@@ -9,6 +9,7 @@ INSERT INTO continent VALUES
 ('AO','Australia y Oceania'),
 ('EU','Europa'),
 ('NI','No information');
+COMMIT;
 
 -- Insert Countries
 
@@ -51,8 +52,8 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('CHN','AS','China',1397715000,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('CIV','NI','Côte d''Ivoire',25716544,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('CMR','A','Camerún',25876380,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COD','A','Congo, República Democrática del',86790567,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COG','A','Congo, República del',5380508,2019);
+INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COD','A','Congo, República Democrátic',86790567,2019);
+INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COG','A','Congo, República ',5380508,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COL','AM','Colombia',50339443,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('COM','A','Comoras',850886,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('CPV','A','Cabo Verde',549935,2019);
@@ -69,8 +70,7 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('DNK','EU','Dinamarca',5818553,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('DOM','AM','República Dominicana',10738958,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('DZA','A','Algeria',43053054,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('EAP','AS','Asia oriental y el Pacífico (excluido altos ingresos)',2093675040,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('EAS','AS','Asia oriental y el Pacífico',2340628292,2019);
+
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('ECU','AM','Ecuador',17373662,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('EGY','A','Egipto',100388073,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('ERI','A','Eritrea',0,2019);
@@ -101,7 +101,7 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('HRV','EU','Croacia',4067500,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('HTI','AM','Haití',11263077,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('HUN','EU','Hungría',9769949,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('IBT','NI','BIRF y la AIF',6486934853,2019);
+-- INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('IBT','NI','BIRF y la AIF',6486934853,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('IDN','AS','Indonesia',270625568,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('IMN','EU','Isla de Man',84584,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('IND','AS','India',1366417754,2019);
@@ -122,7 +122,6 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('KNA','NI','Saint Kitts y Nevis',52834,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('KOR','AS','Corea, República de',51709098,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('KWT','AS','Kuwait',4207083,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('LAC','AM','América Latina y el Caribe (excluido altos ingresos)',613773119,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('LAO','NI','República Democrática Popular Lao',7169455,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('LBN','AS','Líbano',6855713,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('LBR','A','Liberia',4937374,2019);
@@ -193,7 +192,7 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SMR','NI','San Marino',33860,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SOM','A','Somalia',15442905,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SRB','EU','Serbia',6944975,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SSA','A','África al sur del Sahara (excluido altos ingresos)',1105594562,2019);
+INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SSA','A','África al sur del Sahara ',1105594562,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SSD','A','Sudán del Sur',11062113,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('SSF','A','África al sur del Sahara',1106957898,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('STP','NI','Santo Tomé y Príncipe',215056,2019);
@@ -233,7 +232,7 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('VIR','AM','Islas Vírgenes Británicas',106631,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('VNM','AS','Vietnam',96462106,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('VUT','AO','Vanuatu',299882,2019);
-INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('WLD','NI','Mundo',7673533974,2019);
+-- INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('WLD','NI','Mundo',7673533974,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('WSM','NI','Samoa',197097,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('XKX','NI','Kosovo',1794248,2019);
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('YEM','AS','Yemen',29161922,2019);
@@ -242,13 +241,21 @@ INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES 
 INSERT INTO country(id_country,id_continent,name,population,year_census) VALUES ('ZWE','A','Zimbabue',14645468,2019);
 
 -- Insert departamentos
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1291','BOL','Cochabamba','2.026.460',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1292','BOL','Chuquisaca','640.264',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1293','BOL','Beni','489.056',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1936','BOL','La Paz','2.967.180',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1937','BOL','Oruro','539.089',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1938','BOL','Pando','148.612',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1939','BOL','Potosi','891.761',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1940','BOL','Santa Cruz','3.237.223',2019);
-INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1941','BOL','Tarija','572.823',2019);
---
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1291','BOL','Cochabamba',2026460,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1292','BOL','Chuquisaca',640264,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1293','BOL','Beni',489056,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1936','BOL','La Paz',2967180,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1937','BOL','Oruro',539089,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1938','BOL','Pando',148612,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1939','BOL','Potosi',891761,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1940','BOL','Santa Cruz',3237223,2019);
+INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1941','BOL','Tarija',572823,2019);
+-- Insert mundo 23-01-2020
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('CHN','2020-01-23',1084,1084,34,58,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('JPN','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('SGP','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('KOR','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('THA','2020-01-23',4,4,0,2,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('USA','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('VNM','2020-01-23',2,2,0,0,0,NOW(),'192.168.1.5',NOW());
+-- Insert mundo 23-01-2020
