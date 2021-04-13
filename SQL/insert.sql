@@ -251,11 +251,11 @@ INSERT INTO departament(id_departament,id_country,name,population,year_census) V
 INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1940','BOL','Santa Cruz',3237223,2019);
 INSERT INTO departament(id_departament,id_country,name,population,year_census) VALUES ('BOL1941','BOL','Tarija',572823,2019);
 -- Insert mundo 23-01-2020
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('CHN','2020-01-23',1084,1084,34,58,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('JPN','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('SGP','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('KOR','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('THA','2020-01-23',4,4,0,2,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('USA','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
-INSERT INTO day_World(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('VNM','2020-01-23',2,2,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('CHN','2020-01-23',1084,1084,34,58,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('JPN','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('SGP','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('KOR','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('THA','2020-01-23',4,4,0,2,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('USA','2020-01-23',1,1,0,0,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_country(id_country,date,new_cases,accumulated,deaths,recovered,vaccine,tx_date,tx_host,tx_update) VALUES ('VNM','2020-01-23',2,2,0,0,0,NOW(),'192.168.1.5',NOW());
 -- Insert mundo 23-01-2020

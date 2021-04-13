@@ -53,8 +53,8 @@ CREATE TABLE day_municipio (
 );
 
 -- Table: day_world
-CREATE TABLE day_world (
-    id_day_world int NOT NULL AUTO_INCREMENT,
+CREATE TABLE day_country (
+    id_day_country int NOT NULL AUTO_INCREMENT,
     id_country varchar(10) NOT NULL,
     date date NOT NULL,
     new_cases int NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE day_world (
     tx_date datetime NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
-    CONSTRAINT day_world_pk PRIMARY KEY (id_day_world)
+    CONSTRAINT day_country_pk PRIMARY KEY (id_day_country)
 );
 
 -- Table: departament
@@ -113,9 +113,9 @@ CREATE TABLE h_day_municipio (
 );
 
 -- Table: h_day_world
-CREATE TABLE h_day_world (
-    id_h_day_world int NOT NULL AUTO_INCREMENT,
-    id_day_world int NOT NULL,
+CREATE TABLE h_day_country (
+    id_h_day_country int NOT NULL AUTO_INCREMENT,
+    id_day_country int NOT NULL,
     id_country varchar(8) NOT NULL,
     date date NOT NULL,
     new_cases int NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE h_day_world (
     tx_date datetime NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL,
-    CONSTRAINT h_day_world_pk PRIMARY KEY (id_h_day_world)
+    CONSTRAINT h_day_country_pk PRIMARY KEY (id_h_day_country)
 );
 
 -- Table: h_visit
@@ -180,7 +180,7 @@ ALTER TABLE day_municipio ADD CONSTRAINT Day_Municipio FOREIGN KEY Day_Municipio
     REFERENCES municipio (id_municipio);
 
 -- Reference: Day_World_Country (table: day_world)
-ALTER TABLE day_world ADD CONSTRAINT Day_World_Country FOREIGN KEY Day_World_Country (id_country)
+ALTER TABLE day_country ADD CONSTRAINT Day_Country_Country FOREIGN KEY Day_Country_Country (id_country)
     REFERENCES country (id_country);
 
 -- Reference: Municipio_State (table: municipio)
