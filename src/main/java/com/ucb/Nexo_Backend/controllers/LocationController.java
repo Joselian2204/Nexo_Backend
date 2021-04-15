@@ -14,7 +14,7 @@ import java.util.List;
 public class LocationController {
     @Autowired
     private LocationService service;
-    @GetMapping(value = "/bol")
+    @GetMapping(value = "/loc")
     public List<Location> getAll(){
         return this.service.getAll();
     }
