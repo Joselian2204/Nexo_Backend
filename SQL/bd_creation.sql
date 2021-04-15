@@ -135,7 +135,7 @@ CREATE TABLE h_day_municipio (
                                   tx_date datetime NOT NULL,
                                   tx_host varchar(50) NOT NULL,
                                   tx_update datetime NOT NULL,
-                                  CONSTRAINT h_day_municipios_pk PRIMARY KEY (id_h_day_municipio)
+                                  CONSTRAINT h_day_municipio_pk PRIMARY KEY (id_h_day_municipio)
 );
 
 -- Table: municipios
