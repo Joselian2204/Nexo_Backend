@@ -4,187 +4,176 @@ create database covid_db;
 
 use covid_db;
 
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2021-04-14 22:09:43.685
+
+-- tables
+-- Table: continent
 CREATE TABLE continent (
-    id_continent varchar(5) NOT NULL,
-    name varchar(20) NOT NULL,
-    CONSTRAINT continent_pk PRIMARY KEY (id_continent)
+                           id_continent varchar(3) NOT NULL,
+                           name varchar(50) NOT NULL,
+                           CONSTRAINT continent_pk PRIMARY KEY (id_continent)
 );
 
 -- Table: country
 CREATE TABLE country (
-    id_country varchar(8) NOT NULL,
-    id_continent varchar(5) NOT NULL,
-    name varchar(50) NOT NULL,
-    population int NOT NULL,
-    year_census int NOT NULL,
-    CONSTRAINT country_pk PRIMARY KEY (id_country)
+                         id_country varchar(5) NOT NULL,
+                         id_continent varchar(3) NOT NULL,
+                         name varchar(75) NOT NULL,
+                         population int NOT NULL,
+                         lat decimal(10,5) NOT NULL,
+                         lng decimal(10,5) NOT NULL,
+                         year_census int NOT NULL,
+                         CONSTRAINT country_pk PRIMARY KEY (id_country)
 );
 
--- Table: day_departament
-CREATE TABLE day_departament (
-    id_day_departament int NOT NULL AUTO_INCREMENT,
-    id_departament varchar(10) NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT day_departament_pk PRIMARY KEY (id_day_departament)
-);
-
--- Table: day_municipio
-CREATE TABLE day_municipio (
-    id_day_municipio int NOT NULL AUTO_INCREMENT,
-    id_municipio int NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT day_municipio_pk PRIMARY KEY (id_day_municipio)
-);
-
--- Table: day_world
+-- Table: day_country
 CREATE TABLE day_country (
-    id_day_country int NOT NULL AUTO_INCREMENT,
-    id_country varchar(10) NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT day_country_pk PRIMARY KEY (id_day_country)
+                             id_day_country int NOT NULL AUTO_INCREMENT,
+                             id_country varchar(5) NOT NULL,
+                             date date NOT NULL,
+                             new_cases int NOT NULL,
+                             actives int NOT NULL,
+                             deaths int NOT NULL,
+                             recovered int NOT NULL,
+                             vaccine int NOT NULL,
+                             tx_date datetime NOT NULL,
+                             tx_host varchar(50) NOT NULL,
+                             tx_update datetime NOT NULL,
+                             CONSTRAINT day_country_pk PRIMARY KEY (id_day_country)
 );
 
--- Table: departament
-CREATE TABLE departament (
-    id_departament varchar(8) NOT NULL,
-    id_country varchar(10) NOT NULL,
-    name varchar(30) NOT NULL,
-    population int NOT NULL,
-    year_census int NOT NULL,
-    CONSTRAINT departament_pk PRIMARY KEY (id_departament)
+-- Table: day_department
+CREATE TABLE day_department (
+                                id_day_department int NOT NULL AUTO_INCREMENT,
+                                id_department varchar(10) NOT NULL,
+                                date date NOT NULL,
+                                new_cases int NOT NULL,
+                                actives int NOT NULL,
+                                deaths int NOT NULL,
+                                recovered int NOT NULL,
+                                vaccine int NOT NULL,
+                                tx_date datetime NOT NULL,
+                                tx_host varchar(50) NOT NULL,
+                                tx_update datetime NOT NULL,
+                                CONSTRAINT day_department_pk PRIMARY KEY (id_day_department)
 );
 
--- Table: h_day_departament
-CREATE TABLE h_day_departament (
-    id_h_day_departament int NOT NULL AUTO_INCREMENT,
-    id_day_departament int NOT NULL,
-    id_departament varchar(10) NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT h_day_departament_pk PRIMARY KEY (id_h_day_departament)
+-- Table: day_municipios
+CREATE TABLE day_municipio (
+                                id_day_municipio int NOT NULL AUTO_INCREMENT,
+                                id_municipio varchar(5) NOT NULL,
+                                date date NOT NULL,
+                                new_cases int NOT NULL,
+                                actives int NOT NULL,
+                                deaths int NOT NULL,
+                                recovered int NOT NULL,
+                                vaccine int NOT NULL,
+                                tx_date datetime NOT NULL,
+                                tx_host varchar(50) NOT NULL,
+                                tx_update datetime NOT NULL,
+                                CONSTRAINT day_municipio_pk PRIMARY KEY (id_day_municipio)
 );
 
--- Table: h_day_municipio
-CREATE TABLE h_day_municipio (
-    id_h_day_municipio int NOT NULL AUTO_INCREMENT,
-    id_day_municipio int NOT NULL,
-    id_municipio int NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT h_day_municipio_pk PRIMARY KEY (id_h_day_municipio)
+-- Table: department
+CREATE TABLE department (
+                            id_department varchar(10) NOT NULL,
+                            id_country varchar(5) NOT NULL,
+                            name varchar(50) NOT NULL,
+                            population int NOT NULL,
+                            lat decimal(10,5) NOT NULL,
+                            lng decimal(10,5) NOT NULL,
+                            year_census int NOT NULL,
+                            CONSTRAINT department_pk PRIMARY KEY (id_department)
 );
 
--- Table: h_day_world
+-- Table: h_day_country
 CREATE TABLE h_day_country (
-    id_h_day_country int NOT NULL AUTO_INCREMENT,
-    id_day_country int NOT NULL,
-    id_country varchar(8) NOT NULL,
-    date date NOT NULL,
-    new_cases int NOT NULL,
-    deaths int NOT NULL,
-    recovered int NOT NULL,
-    vaccine int NOT NULL,
-    accumulated int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT h_day_country_pk PRIMARY KEY (id_h_day_country)
+                               id_h_day_country int NOT NULL AUTO_INCREMENT,
+                               id_day_country int NOT NULL,
+                               id_country varchar(5) NOT NULL,
+                               date date NOT NULL,
+                               new_cases int NOT NULL,
+                               actives int NOT NULL,
+                               deaths int NOT NULL,
+                               recovered int NOT NULL,
+                               vaccine int NOT NULL,
+                               tx_date datetime NOT NULL,
+                               tx_host varchar(50) NOT NULL,
+                               tx_update datetime NOT NULL,
+                               CONSTRAINT h_day_country_pk PRIMARY KEY (id_h_day_country)
 );
 
--- Table: h_visit
-CREATE TABLE h_visit (
-    id_h_visit int NOT NULL AUTO_INCREMENT,
-    id_visit int NOT NULL,
-    date date NOT NULL,
-    count int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT h_visit_pk PRIMARY KEY (id_h_visit)
+-- Table: h_day_department
+CREATE TABLE h_day_department (
+                                  id_h_day_department int NOT NULL AUTO_INCREMENT,
+                                  id_day_department int NOT NULL,
+                                  id_department varchar(10) NOT NULL,
+                                  date date NOT NULL,
+                                  new_cases int NOT NULL,
+                                  actives int NOT NULL,
+                                  deaths int NOT NULL,
+                                  recovered int NOT NULL,
+                                  vaccine int NOT NULL,
+                                  tx_date datetime NOT NULL,
+                                  tx_host varchar(50) NOT NULL,
+                                  tx_update datetime NOT NULL,
+                                  CONSTRAINT h_day_department_pk PRIMARY KEY (id_h_day_department)
 );
 
--- Table: municipio
+-- Table: h_day_municipios
+CREATE TABLE h_day_municipio (
+                                  id_h_day_municipio int NOT NULL AUTO_INCREMENT,
+                                  id_day_municipio int NOT NULL,
+                                  id_municipios varchar(5) NOT NULL,
+                                  date date NOT NULL,
+                                  new_cases int NOT NULL,
+                                  actives int NOT NULL,
+                                  deaths int NOT NULL,
+                                  recovered int NOT NULL,
+                                  vaccine int NOT NULL,
+                                  tx_date datetime NOT NULL,
+                                  tx_host varchar(50) NOT NULL,
+                                  tx_update datetime NOT NULL,
+                                  CONSTRAINT h_day_municipios_pk PRIMARY KEY (id_h_day_municipio)
+);
+
+-- Table: municipios
 CREATE TABLE municipio (
-    id_municipio int NOT NULL AUTO_INCREMENT,
-    id_departament varchar(10) NOT NULL,
-    name varchar(30) NOT NULL,
-    population int NOT NULL,
-    year_census int NOT NULL,
-    CONSTRAINT municipio_pk PRIMARY KEY (id_municipio)
-);
-
--- Table: visit
-CREATE TABLE visit (
-    id_visit int NOT NULL AUTO_INCREMENT,
-    date date NOT NULL,
-    count int NOT NULL,
-    tx_date datetime NOT NULL,
-    tx_host varchar(100) NOT NULL,
-    tx_update datetime NOT NULL,
-    CONSTRAINT visit_pk PRIMARY KEY (id_visit)
+                            id_municipio varchar(5) NOT NULL,
+                            id_department varchar(10) NOT NULL,
+                            name varchar(75) NOT NULL,
+                            population int NOT NULL,
+                            lat decimal(10,5) NOT NULL,
+                            lng decimal(10,5) NOT NULL,
+                            year_census int NOT NULL,
+                            CONSTRAINT municipio_pk PRIMARY KEY (id_municipio)
 );
 
 -- foreign keys
--- Reference: City_Country (table: departament)
-ALTER TABLE departament ADD CONSTRAINT City_Country FOREIGN KEY City_Country (id_country)
-    REFERENCES country (id_country);
-
--- Reference: Copy_of_day_Bolivia_departament (table: day_departament)
-ALTER TABLE day_departament ADD CONSTRAINT Copy_of_day_Bolivia_departament FOREIGN KEY Copy_of_day_Bolivia_departament (id_departament)
-    REFERENCES departament (id_departament);
-
--- Reference: Country_Continent (table: country)
-ALTER TABLE country ADD CONSTRAINT Country_Continent FOREIGN KEY Country_Continent (id_continent)
+-- Reference: country_continent (table: country)
+ALTER TABLE country ADD CONSTRAINT country_continent FOREIGN KEY country_continent (id_continent)
     REFERENCES continent (id_continent);
 
--- Reference: Day_Municipio (table: day_municipio)
-ALTER TABLE day_municipio ADD CONSTRAINT Day_Municipio FOREIGN KEY Day_Municipio (id_municipio)
-    REFERENCES municipio (id_municipio);
-
--- Reference: Day_World_Country (table: day_world)
-ALTER TABLE day_country ADD CONSTRAINT Day_Country_Country FOREIGN KEY Day_Country_Country (id_country)
+-- Reference: day_country_country (table: day_country)
+ALTER TABLE day_country ADD CONSTRAINT day_country_country FOREIGN KEY day_country_country (id_country)
     REFERENCES country (id_country);
 
--- Reference: Municipio_State (table: municipio)
-ALTER TABLE municipio ADD CONSTRAINT Municipio_State FOREIGN KEY Municipio_State (id_departament)
-    REFERENCES departament (id_departament);
+-- Reference: day_department_department (table: day_department)
+ALTER TABLE day_department ADD CONSTRAINT day_department_department FOREIGN KEY day_department_department (id_department)
+    REFERENCES department (id_department);
+
+-- Reference: day_municipios_municipios (table: day_municipios)
+ALTER TABLE day_municipio ADD CONSTRAINT day_municipio_municipio FOREIGN KEY day_municipio_municipio (id_municipio)
+    REFERENCES municipio (id_municipio);
+
+-- Reference: departament_country (table: department)
+ALTER TABLE department ADD CONSTRAINT departament_country FOREIGN KEY departament_country (id_country)
+    REFERENCES country (id_country);
+
+-- Reference: municipios_departament (table: municipios)
+ALTER TABLE municipio ADD CONSTRAINT municipio_departament FOREIGN KEY municipio_departament (id_department)
+    REFERENCES department (id_department);
 
 -- End of file.
+
