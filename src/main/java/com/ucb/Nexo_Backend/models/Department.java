@@ -10,7 +10,7 @@ public class Department {
     @Id
     @GeneratedValue
     @Column(name = "id_department")
-    private String departmentId;
+    private String id;
     @Column(name = "id_country")
     private String countryId;
     private String name;
@@ -26,7 +26,7 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "departmentId='" + departmentId + '\'' +
+                "departmentId='" + id + '\'' +
                 ", countryId='" + countryId + '\'' +
                 ", name='" + name + '\'' +
                 ", population='" + population + '\'' +
@@ -36,12 +36,12 @@ public class Department {
                 '}';
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+    public String getId() {
+        return id;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentId(String id) {
+        this.id =id;
     }
 
     public String getCountryId() {
