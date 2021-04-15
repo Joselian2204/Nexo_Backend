@@ -11,7 +11,7 @@ import java.util.List;
 public class DepartmentService {
     private DepartmentRepository repo;
     @Autowired
-    public void setService(DepartmentRepository repo){
+    public void setRepo(DepartmentRepository repo){
         this.repo = repo;
     }
 

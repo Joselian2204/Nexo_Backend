@@ -9,8 +9,11 @@ import java.util.List;
 
 @Service
 public class LocationService {
-    @Autowired
     private LocationRepository repo;
+    @Autowired
+    public void setRepo(LocationRepository repo){
+        this.repo = repo;
+    }
     public List<Location> getAll(){
         return this.repo.findAll();
     }
