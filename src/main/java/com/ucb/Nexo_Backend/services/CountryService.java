@@ -1,8 +1,11 @@
 package com.ucb.Nexo_Backend.services;
 
+import com.ucb.Nexo_Backend.models.Country;
 import com.ucb.Nexo_Backend.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CountryService {
@@ -11,7 +14,7 @@ public class CountryService {
     public void setRepo(CountryRepository repo){
         this.repo = repo;
     }
-    public void getAll(){
-        this.repo.findAll();
+    public List<Country> getAll(){
+        return this.repo.findAll();
     }
 }
