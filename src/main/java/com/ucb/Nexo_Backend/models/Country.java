@@ -17,24 +17,8 @@ public class Country {
     private Integer population;
     @Column(name = "year_census")
     private Integer censusYear;
-    private String latitud;
-    private String longitud;
-
-    @Override
-    public String toString() {
-        return "Country{" +
-                "id='" + id + '\'' +
-                ", continentId='" + continentId + '\'' +
-                ", name='" + name + '\'' +
-                ", population=" + population +
-                ", censusYear=" + censusYear +
-                ", latitud='" + latitud + '\'' +
-                ", longitud='" + longitud + '\'' +
-                '}';
-    }
-
-    public Country() {
-    }
+    private String lat;
+    private String lng;
 
     public String getId() {
         return id;
@@ -76,19 +60,32 @@ public class Country {
         this.censusYear = censusYear;
     }
 
-    public String getLatitud() {
-        return latitud;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLatitud(String latitud) {
-        this.latitud = latitud;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getLongitud() {
-        return longitud;
+    public String getLng() {
+        return lng;
     }
 
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id='" + id + '\'' +
+                ", continentId='" + continentId + '\'' +
+                ", name='" + name + '\'' +
+                ", population=" + population +
+                ", censusYear=" + censusYear +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
+                '}';
     }
 }

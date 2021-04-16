@@ -17,31 +17,19 @@ public class Department {
     private String population;
     @Column(name = "year_census")
     private String censusYear;
-    private String latitud;
-    private String longitud;
+    private String lat;
+    private String lng;
 
     public Department() {
     }
 
-    @Override
-    public String toString() {
-        return "Department{" +
-                "departmentId='" + id + '\'' +
-                ", countryId='" + countryId + '\'' +
-                ", name='" + name + '\'' +
-                ", population='" + population + '\'' +
-                ", censusYear='" + censusYear + '\'' +
-                ", latitud='" + latitud + '\'' +
-                ", longitud='" + longitud + '\'' +
-                '}';
-    }
 
     public String getId() {
         return id;
     }
 
-    public void setDepartmentId(String id) {
-        this.id =id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCountryId() {
@@ -76,19 +64,32 @@ public class Department {
         this.censusYear = censusYear;
     }
 
-    public String getLatitud() {
-        return latitud;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLatitud(String latitud) {
-        this.latitud = latitud;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getLongitud() {
-        return longitud;
+    public String getLng() {
+        return lng;
     }
 
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id='" + id + '\'' +
+                ", countryId='" + countryId + '\'' +
+                ", name='" + name + '\'' +
+                ", population='" + population + '\'' +
+                ", censusYear='" + censusYear + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
+                '}';
     }
 }
