@@ -17,11 +17,12 @@ public class Department {
     private String population;
     @Column(name = "year_census")
     private String censusYear;
-    private double lat;
-    private double lng;
+    private String lat;
+    private String lng;
 
     public Department() {
     }
+
 
     public String getId() {
         return id;
@@ -63,19 +64,19 @@ public class Department {
         this.censusYear = censusYear;
     }
 
-    public double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public double getLng() {
+    public String getLng() {
         return lng;
     }
 
-    public void setLng(double lng) {
+    public void setLng(String lng) {
         this.lng = lng;
     }
 
@@ -87,8 +88,8 @@ public class Department {
                 ", name='" + name + '\'' +
                 ", population='" + population + '\'' +
                 ", censusYear='" + censusYear + '\'' +
-                ", lat=" + lat +
-                ", lng=" + lng +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
                 '}';
     }
 }
