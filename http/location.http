@@ -2,3 +2,7 @@ GET http://localhost:8080/department/BOL1293
 Accept: application/json
 
 ###
+GET http://localhost:8080/bol
+Accept: application/json
+
+###

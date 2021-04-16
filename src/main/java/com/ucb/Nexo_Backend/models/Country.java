@@ -17,8 +17,8 @@ public class Country {
     private Integer population;
     @Column(name = "year_census")
     private Integer censusYear;
-    private String lat;
-    private String lng;
+    private double lat;
+    private double lng;
 
     public String getId() {
         return id;
@@ -60,19 +60,19 @@ public class Country {
         this.censusYear = censusYear;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 
@@ -84,8 +84,8 @@ public class Country {
                 ", name='" + name + '\'' +
                 ", population=" + population +
                 ", censusYear=" + censusYear +
-                ", lat='" + lat + '\'' +
-                ", lng='" + lng + '\'' +
+                ", lat=" + lat +
+                ", lng=" + lng +
                 '}';
     }
 }
