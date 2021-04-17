@@ -12,8 +12,9 @@ public class MunicipioCases {
     private Integer id;
     @Column(name = "id_municipio")
     private String regionId;
+    private Date date;
     @Column(name = "new_cases")
-    private Date newCases;
+    private Long newCases;
     private Long actives;
     private Long deaths;
     private Long recovered;
@@ -38,11 +39,19 @@ public class MunicipioCases {
         this.regionId = regionId;
     }
 
-    public Date getNewCases() {
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Long getNewCases() {
         return newCases;
     }
 
-    public void setNewCases(Date newCases) {
+    public void setNewCases(Long newCases) {
         this.newCases = newCases;
     }
 
@@ -83,6 +92,7 @@ public class MunicipioCases {
         return "MunicipioCases{" +
                 "id=" + id +
                 ", regionId='" + regionId + '\'' +
+                ", date=" + date +
                 ", newCases=" + newCases +
                 ", actives=" + actives +
                 ", deaths=" + deaths +
