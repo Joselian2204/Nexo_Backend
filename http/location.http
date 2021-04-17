@@ -2,6 +2,8 @@ GET http://localhost:8080/municipio/be0
 Accept: application/json
 
 ###
+GET http://localhost:8080/bol
+Accept: application/json
 GET http://localhost:8080/municipios
 Accept: application/json
 
