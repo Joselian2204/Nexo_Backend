@@ -15,6 +15,6 @@ public class DepartmentCasesService {
         this.repo = repo;
     }
     public List<DepartmentCases> getByDepartmentId(String id){
-        return repo.findByDepartmentId(id);
+        return repo.findByDepartmentIdOrderByDate(id);
     }
 }

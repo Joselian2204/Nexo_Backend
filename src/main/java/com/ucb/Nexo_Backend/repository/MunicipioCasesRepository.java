@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface MunicipioCasesRepository extends JpaRepository<MunicipioCases,Integer> {
-    public List<MunicipioCases> findByRegionId(String id);
+    public List<MunicipioCases> findByRegionIdOrderByDate(String id);
 }

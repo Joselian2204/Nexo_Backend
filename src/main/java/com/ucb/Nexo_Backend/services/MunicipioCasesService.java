@@ -15,6 +15,6 @@ public class MunicipioCasesService {
         this.repo = repo;
     }
     public List<MunicipioCases> getByRegionId(String id){
-        return this.repo.findByRegionId(id);
+        return this.repo.findByRegionIdOrderByDate(id);
     }
 }

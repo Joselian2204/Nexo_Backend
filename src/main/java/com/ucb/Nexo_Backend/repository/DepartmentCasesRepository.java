@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface DepartmentCasesRepository extends JpaRepository<DepartmentCases, Integer> {
-    public List<DepartmentCases> findByDepartmentId(String id);
+    public List<DepartmentCases> findByDepartmentIdOrderByDate(String id);
 }

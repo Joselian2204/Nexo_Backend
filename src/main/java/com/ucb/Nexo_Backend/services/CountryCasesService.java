@@ -15,6 +15,6 @@ public class CountryCasesService {
         this.repo = repo;
     }
     public List<CountryCases> getByCountryId(String id){
-        return repo.findByCountryId(id);
+        return repo.findByCountryIdOrderByDate(id);
     }
 }
