@@ -5,6 +5,7 @@ import com.ucb.Nexo_Backend.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -19,10 +20,11 @@ public class CountryService {
     }
     public Country getTotal(){
         Country total = new Country();
+        total.setPopulation(7673533970L);
         total.setCases(repo.getCases());
-        total.setDeaths(repo.getCases());
-        total.setRecovered(repo.getCases());
-        total.setVaccine(repo.getCases());
+        total.setDeaths(repo.getDeaths());
+        total.setRecovered(repo.getRecovered());
+        total.setVaccine(repo.getVaccine());
         return total;
     }
 }

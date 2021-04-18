@@ -7,4 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 public interface CountryRepository extends JpaRepository<Country, String> {
     @Query("select sum(cases) from Country")
     public Long getCases();
+    @Query("select sum(deaths) from Country")
+    public Long getDeaths();
+    @Query("select sum(recovered) from Country")
+    public Long getRecovered();
+    @Query("select sum(vaccine) from Country")
+    public Long getVaccine();
 }

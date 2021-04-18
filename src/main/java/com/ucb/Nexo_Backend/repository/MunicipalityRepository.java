@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface MunicipioRepository extends JpaRepository<Municipality, String > {
+public interface MunicipalityRepository extends JpaRepository<Municipality, String > {
     public List<Municipality> findByRegionId(String  id);
 }

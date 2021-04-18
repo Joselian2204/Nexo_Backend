@@ -30,4 +30,8 @@ public class DepartmentController {
     public List<DepartmentCases> getCases(@PathVariable String id){
         return casesService.getByDepartmentId(id);
     }
+    @GetMapping(value = "/bol_cases")
+    public Department getTotal(){
+        return this.service.getTotal();
+    }
 }

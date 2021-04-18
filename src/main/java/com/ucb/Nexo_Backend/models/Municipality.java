@@ -17,7 +17,10 @@ public class Municipality {
     private Integer population;
     private Float lat;
     private Float lng;
-
+    private Long cases;
+    private Long deaths;
+    private Long recovered;
+    private Long vaccine;
     public Municipality() {
     }
 
@@ -67,6 +70,38 @@ public class Municipality {
 
     public void setLng(Float lng) {
         this.lng = lng;
+    }
+
+    public Long getCases() {
+        return cases;
+    }
+
+    public void setCases(Long cases) {
+        this.cases = cases;
+    }
+
+    public Long getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(Long deaths) {
+        this.deaths = deaths;
+    }
+
+    public Long getRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(Long recovered) {
+        this.recovered = recovered;
+    }
+
+    public Long getVaccine() {
+        return vaccine;
+    }
+
+    public void setVaccine(Long vaccine) {
+        this.vaccine = vaccine;
     }
 
     @Override
