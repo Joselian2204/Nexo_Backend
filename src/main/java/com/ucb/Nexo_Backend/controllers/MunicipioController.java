@@ -31,4 +31,8 @@ public class MunicipioController {
     public List<MunicipioCases> getCases(@PathVariable String id){
         return casesService.getByRegionId(id);
     }
+    @GetMapping(value = "/municipios/{id}")
+    public List<Municipio> getCasesByDepartment(@PathVariable String id){
+        return service.getByDepartmentId(id);
+    }
 }

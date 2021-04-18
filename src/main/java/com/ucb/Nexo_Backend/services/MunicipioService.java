@@ -17,4 +17,7 @@ public class MunicipioService {
     public List<Municipio> getAll(){
         return this.repo.findAll();
     }
+    public List<Municipio> getByDepartmentId(String id){
+        return repo.findByRegionId(id);
+    }
 }
