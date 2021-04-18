@@ -6,10 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Municipio {
+public class Municipality {
     @Id
     @GeneratedValue
-    @Column(name = "id_municipio")
+    @Column(name = "id_municipality")
     private String id;
     @Column(name = "id_department")
     private String regionId;
@@ -18,7 +18,7 @@ public class Municipio {
     private Float lat;
     private Float lng;
 
-    public Municipio() {
+    public Municipality() {
     }
 
     public String getId() {

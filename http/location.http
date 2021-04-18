@@ -2,10 +2,10 @@ GET http://localhost:8080/municipios/BOL1293
 Accept: application/json
 
 ###
-GET http://localhost:8080/bol
+GET http://localhost:8080/world
 Accept: application/json
-GET http://localhost:8080/municipios
-Accept: application/json
+//GET http://localhost:8080/municipios
+//Accept: application/json
 
 ###
 GET http://localhost:8080/department/BOL1293

@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "day_municipio")
-public class MunicipioCases {
+@Table(name = "day_municipality")
+public class MunicipalityCases {
     @Id
     @GeneratedValue
-    @Column(name = "id_day_municipio")
+    @Column(name = "id_day_municipality")
     private Integer id;
-    @Column(name = "id_municipio")
+    @Column(name = "id_municipality")
     private String regionId;
     private Date date;
     @Column(name = "new_cases")
@@ -20,7 +20,7 @@ public class MunicipioCases {
     private Long recovered;
     private Long vaccine;
 
-    public MunicipioCases() {
+    public MunicipalityCases() {
     }
 
     public Integer getId() {
