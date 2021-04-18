@@ -30,4 +30,8 @@ public class CountryController {
     public List<CountryCases> getCases(@PathVariable String id){
         return casesService.getByCountryId(id);
     }
+    @GetMapping(value = "world_cases")
+    public Country getTotal(){
+        return service.getTotal();
+    }
 }

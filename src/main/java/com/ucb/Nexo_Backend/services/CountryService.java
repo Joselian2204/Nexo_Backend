@@ -17,4 +17,12 @@ public class CountryService {
     public List<Country> getAll(){
         return this.repo.findAll();
     }
+    public Country getTotal(){
+        Country total = new Country();
+        total.setCases(repo.getCases());
+        total.setDeaths(repo.getCases());
+        total.setRecovered(repo.getCases());
+        total.setVaccine(repo.getCases());
+        return total;
+    }
 }

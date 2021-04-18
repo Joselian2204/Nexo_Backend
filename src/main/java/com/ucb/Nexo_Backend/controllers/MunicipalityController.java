@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-public class MunicipioController {
+public class MunicipalityController {
     private MunicipalityService service;
     private MunicipalityCasesService casesService;
     @Autowired
