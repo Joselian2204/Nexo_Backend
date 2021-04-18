@@ -19,7 +19,10 @@ public class Country {
     private Integer censusYear;
     private String lat;
     private String lng;
-
+    private Long cases;
+    private Long deaths;
+    private Long recovered;
+    private Long vaccine;
     public String getId() {
         return id;
     }

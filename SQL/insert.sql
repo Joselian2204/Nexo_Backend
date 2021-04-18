@@ -540,7 +540,7 @@ INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-13',6807,200,0,147,0,NOW(),'192.168.1.8',NOW());
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-12',6660,192,0,98,0,NOW(),'192.168.1.7',NOW());
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-11',6562,186,0,78,0,NOW(),'192.168.1.6',NOW());
-INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-10',6484,184,0,82,0,NOW(),'192.168.1.5',NOW());
+INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1294','2021-04-10',6484,184,0,82,0,NOW(),'192.168.1.5',NOW());
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-09',6402,180,0,98,0,NOW(),'192.168.1.4',NOW());
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-08',6304,179,0,99,0,NOW(),'192.168.1.3',NOW());
 INSERT INTO day_department(id_department,date,actives,deaths,recovered,new_cases,vaccine,tx_date,tx_host,tx_update) VALUES ('BOL1293','2021-04-07',6205,179,0,71,0,NOW(),'192.168.1.2',NOW());

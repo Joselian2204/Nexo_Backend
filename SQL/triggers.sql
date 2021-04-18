@@ -64,3 +64,13 @@ BEGIN
 END;
 |
 DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_update_total_municipio
+    AFTER UPDATE ON day_municipio
+    FOR EACH ROW
+BEGIN
+    UPDATE DEPARTMENT
+END;
+|
+DELIMITER ;

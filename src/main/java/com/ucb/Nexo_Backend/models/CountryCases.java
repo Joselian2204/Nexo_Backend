@@ -15,7 +15,7 @@ public class CountryCases {
     @Column(name = "id_country")
     private String countryId;
     private Date date;
-    @Column(name = "new_cases")
+    @Column(name = "cases")
     private Long newCases;
     private Long actives;
     private Long deaths;
