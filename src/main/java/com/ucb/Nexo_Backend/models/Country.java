@@ -14,7 +14,7 @@ public class Country {
     @Column(name = "id_continent")
     private String continentId;
     private String name;
-    private Integer population;
+    private Long population;
     @Column(name = "year_census")
     private Integer censusYear;
     private String lat;
@@ -51,11 +51,11 @@ public class Country {
         this.name = name;
     }
 
-    public Integer getPopulation() {
+    public Long getPopulation() {
         return population;
     }
 
-    public void setPopulation(Integer population) {
+    public void setPopulation(Long population) {
         this.population = population;
     }
 

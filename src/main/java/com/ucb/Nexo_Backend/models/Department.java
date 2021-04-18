@@ -14,11 +14,15 @@ public class Department {
     @Column(name = "id_country")
     private String countryId;
     private String name;
-    private String population;
+    private Long population;
     @Column(name = "year_census")
     private String censusYear;
     private String lat;
     private String lng;
+    private Long cases;
+    private Long deaths;
+    private Long recovered;
+    private Long vaccine;
 
     public Department() {
     }
@@ -48,11 +52,11 @@ public class Department {
         this.name = name;
     }
 
-    public String getPopulation() {
+    public Long getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(Long population) {
         this.population = population;
     }
 
@@ -78,6 +82,38 @@ public class Department {
 
     public void setLng(String lng) {
         this.lng = lng;
+    }
+
+    public Long getCases() {
+        return cases;
+    }
+
+    public void setCases(Long cases) {
+        this.cases = cases;
+    }
+
+    public Long getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(Long deaths) {
+        this.deaths = deaths;
+    }
+
+    public Long getRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(Long recovered) {
+        this.recovered = recovered;
+    }
+
+    public Long getVaccine() {
+        return vaccine;
+    }
+
+    public void setVaccine(Long vaccine) {
+        this.vaccine = vaccine;
     }
 
     @Override
