@@ -16,7 +16,7 @@ public class CountryCases {
     private String countryId;
     private Date date;
     @Column(name = "cases")
-    private Long newCases;
+    private Long cases;
     private Long actives;
     private Long deaths;
     private Long recovered;
@@ -50,11 +50,11 @@ public class CountryCases {
     }
 
     public Long getNewCases() {
-        return newCases;
+        return cases;
     }
 
     public void setNewCases(Long newCases) {
-        this.newCases = newCases;
+        this.cases = newCases;
     }
 
     public Long getActives() {
@@ -95,7 +95,7 @@ public class CountryCases {
                 "id=" + id +
                 ", countryId='" + countryId + '\'' +
                 ", date=" + date +
-                ", newCases=" + newCases +
+                ", newCases=" + cases +
                 ", actives=" + actives +
                 ", deaths=" + deaths +
                 ", recovered=" + recovered +
