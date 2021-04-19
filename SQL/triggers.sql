@@ -68,11 +68,35 @@ END;
 DELIMITER ;
 
 DELIMITER |
-CREATE TRIGGER tg_update_total_municipality
-    AFTER UPDATE ON day_municipality
+CREATE TRIGGER  tg_update_total_department
+    AFTER Insert ON day_department
     FOR EACH ROW
 BEGIN
-    UPDATE DEPARTMENT
+    UPDATE department
+    SET cases = cases + new.new_cases, deaths = deaths + new.deaths, recovered = recovered + new.recovered, vaccine = vaccine + new.vaccine
+    WHERE id_department = new.id_department;
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER  tg_update_total_country
+    AFTER Insert ON day_country
+    FOR EACH ROW
+BEGIN
+    UPDATE country
+    SET cases = cases + new.cases, deaths = deaths + new.deaths, recovered = recovered + new.recovered, vaccine = vaccine + new.vaccine
+    WHERE id_country = new.id_country;
+END;
+|
+DELIMITER ;
+CREATE TRIGGER  tg_update_total_municipality
+    AFTER Insert ON day_municipality
+    FOR EACH ROW
+BEGIN
+    UPDATE country
+    SET cases = cases + new.new_cases, deaths = deaths + new.deaths, recovered = recovered + new.recovered, vaccine = vaccine + new.vaccine
+    WHERE id_municipality= new.id_municipality;
 END;
 |
 DELIMITER ;
