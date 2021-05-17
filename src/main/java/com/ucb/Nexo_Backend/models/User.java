@@ -3,7 +3,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
 public class User {
@@ -16,10 +15,7 @@ public class User {
     private String email;
     @Column(name = "last_name")
     private String lastName;
-    private Date txDate;
-    private int txIdUser;
-    private String txHost;
-    private Date txUpdate;
+
     public User() {
     }
 
