@@ -16,7 +16,7 @@ public class UserService {
     public void setRepo(UserRepository repo){
         this.repo = repo;
     }
-    public List<User>  getByUserId(String id_user){
+    public List<User>  getByUserId(int id_user){
         return repo.findByIdUser(id_user);
     }
 

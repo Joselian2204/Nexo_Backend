@@ -3,27 +3,31 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue
     @Column(name = "id_user")
-    private String idUser;
+    private int idUser;
     private String password;
     private String name;
     private String email;
     @Column(name = "last_name")
     private String lastName;
-
+    private Date txDate;
+    private int txIdUser;
+    private String txHost;
+    private Date txUpdate;
     public User() {
     }
 
-    public String getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
