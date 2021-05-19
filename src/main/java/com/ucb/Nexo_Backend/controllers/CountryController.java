@@ -5,11 +5,10 @@ import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.services.CountryCasesService;
 import com.ucb.Nexo_Backend.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -34,4 +33,10 @@ public class CountryController {
     public Country getTotal(){
         return service.getTotal();
     }
+    @GetMapping(value = "/datecountry")
+    public List<CountryCases> getDates(@RequestParam("date")Date date1, @RequestParam("date") Date date2){
+
+        return casesService.getByDateId(date1,date2);
+    }
+
 }

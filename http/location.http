@@ -1,3 +1,7 @@
+GET http://localhost:8080/datecountry?date1=2021-01-01&date2=2021-01-07
+Accept: application/json
+
+###
 GET http://localhost:80/api/item?id=99
 Accept: application/json
 
@@ -23,6 +27,10 @@ Accept: application/json
 
 ###
 GET http://localhost:8080/bol_cases
+Accept: application/json
+
+###
+GET http://localhost:8080/datecountry?date1=2021-01-01&date2=2021-01-07
 Accept: application/json
 
 ###
