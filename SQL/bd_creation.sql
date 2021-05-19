@@ -189,12 +189,16 @@ ALTER TABLE municipality ADD CONSTRAINT municipios_departament FOREIGN KEY munic
 -- End of file.
 
 -- Creacion table Usuario
+drop table if exists user;
 create  table user (
-    id_user varchar(20) primary key,
+    id_user int primary key auto_increment,
     password varchar(255) not null,
     name varchar(50) not null ,
     last_name varchar(50) not null,
-    email varchar(100) not null
-     );
-
-
+    email varchar(100) not null,
+    status tinyint NOT NULL,
+    tx_date datetime NOT NULL,
+    tx_id_user int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_update datetime NOT NULL);
+insert into user values (null,"hello","Silvana","munoz","sil@gmail.com",1,NOW(),1,"192.168.1.18", NOW())

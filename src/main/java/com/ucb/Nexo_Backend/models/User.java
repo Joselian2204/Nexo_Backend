@@ -9,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "id_user")
-    private String idUser;
+    private int idUser;
     private String password;
     private String name;
     private String email;
@@ -19,11 +19,11 @@ public class User {
     public User() {
     }
 
-    public String getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
