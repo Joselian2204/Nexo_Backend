@@ -30,7 +30,7 @@ GET http://localhost:8080/bol_cases
 Accept: application/json
 
 ###
-GET http://localhost:8080/datecountry?date1=2021-01-01&date2=2021-01-07
+GET http://localhost:8080/country?id=AFG&date1=2021-01-01&date2=2021-01-07
 Accept: application/json
 
 ###

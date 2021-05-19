@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -33,10 +34,10 @@ public class CountryController {
     public Country getTotal(){
         return service.getTotal();
     }
-    @GetMapping(value = "/datecountry")
-    public List<CountryCases> getDates(@RequestParam("date")Date date1, @RequestParam("date") Date date2){
+    @GetMapping(value = "/country")
+    public List<CountryCases> getDates(@RequestParam String id,@RequestParam String date1, @RequestParam String date2) throws ParseException {
 
-        return casesService.getByDateId(date1,date2);
+        return casesService.getByDateId(id,date1,date2);
     }
 
 }
