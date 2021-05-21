@@ -1,15 +1,14 @@
 package com.ucb.Nexo_Backend.controllers;
 
+import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.services.DepartmentCasesService;
 import com.ucb.Nexo_Backend.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -33,5 +32,11 @@ public class DepartmentController {
     @GetMapping(value = "/bol_cases")
     public Department getTotal(){
         return this.service.getTotal();
+    }
+
+    @GetMapping(value = "/departament")
+    public List<DepartmentCases> getDates(@RequestParam String id, @RequestParam String date1, @RequestParam String date2) throws ParseException {
+
+        return casesService.getByDateId(id,date1,date2);
     }
 }

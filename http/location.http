@@ -34,3 +34,8 @@ GET http://localhost:8080/country?id=AFG&date1=2021-01-01&date2=2021-01-07
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/departament?id=BOL1291&date1=2021-01-01&date2=2021-01-07
+Accept: application/json
+
+###
