@@ -34,7 +34,7 @@ public class DepartmentController {
         return this.service.getTotal();
     }
 
-    @GetMapping(value = "/departament")
+    @GetMapping(value = "/department")
     public List<DepartmentCases> getDates(@RequestParam String id, @RequestParam String date1, @RequestParam String date2) throws ParseException {
 
         return casesService.getByDateId(id,date1,date2);

@@ -37,6 +37,18 @@ public class NexoBackendApplication {
 			http.cors().and().csrf().disable()
 					.addFilterAfter(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
+					.antMatchers(HttpMethod.GET, "/world").permitAll()
+					.antMatchers(HttpMethod.GET, "/country/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/world_cases").permitAll()
+					.antMatchers(HttpMethod.GET, "/bol").permitAll()
+					.antMatchers(HttpMethod.GET, "/department/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/bol_cases").permitAll()
+					.antMatchers(HttpMethod.GET, "/municipio/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/municipios/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/administrator/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/department").permitAll()
+
+
 					.anyRequest().authenticated();
 		}
 		@Bean

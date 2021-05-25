@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Administrator {
     @Id
     @GeneratedValue
-    @Column(name = "id_user")
+    @Column(name = "id_admi")
     private int idUser;
     private String password;
     private String name;
@@ -16,7 +16,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    public User() {
+    public Administrator() {
     }
 
     public int getIdUser() {
