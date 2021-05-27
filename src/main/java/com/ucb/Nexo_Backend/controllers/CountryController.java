@@ -27,8 +27,13 @@ public class CountryController {
         return service.getAll();
     }
     @GetMapping(value = "/country/{id}")
-    public List<CountryCases> getCases(@PathVariable String id){
-        return casesService.getByCountryId(id);
+    public List<CountryCases> getCases(@PathVariable String id, @RequestParam String date1, @RequestParam String date2) throws ParseException{
+        if(date1 == "" || date2 == ""){
+            return casesService.getByCountryId(id);
+        }
+        else {
+            return casesService.getByDateId(id,date1,date2);
+        }
     }
     @GetMapping(value = "world_cases")
     public Country getTotal(){

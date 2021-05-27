@@ -26,8 +26,13 @@ public class DepartmentController {
         return service.getAll();
     }
     @GetMapping(value = "/department/{id}")
-    public List<DepartmentCases> getCases(@PathVariable String id){
-        return casesService.getByDepartmentId(id);
+    public List<DepartmentCases> getCases(@PathVariable String id,@RequestParam String date1, @RequestParam String date2) throws ParseException{
+        if(date1 == "" || date2 == ""){
+            return casesService.getByDepartmentId(id);
+        }
+        else{
+            return casesService.getByDateId(id,date1,date2);
+        }
     }
     @GetMapping(value = "/bol_cases")
     public Department getTotal(){

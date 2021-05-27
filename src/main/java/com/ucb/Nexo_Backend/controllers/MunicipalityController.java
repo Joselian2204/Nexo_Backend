@@ -26,8 +26,13 @@ public class MunicipalityController {
         return this.service.getAll();
     }
     @GetMapping(value = "/municipio/{id}")
-    public List<MunicipalityCases> getCases(@PathVariable String id){
-        return casesService.getByRegionId(id);
+    public List<MunicipalityCases> getCases(@PathVariable String id, @RequestParam String date1, @RequestParam String date2) throws ParseException{
+        if(date1 == "" || date2 == ""){
+            return casesService.getByRegionId(id);
+        }
+        else {
+            return casesService.getByDateId(id,date1,date2);
+        }
     }
     @GetMapping(value = "/municipios/{id}")
     public List<Municipality> getCasesByDepartment(@PathVariable String id){
