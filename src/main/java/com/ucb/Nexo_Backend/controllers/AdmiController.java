@@ -1,27 +1,32 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.models.Administrator;
-import com.ucb.Nexo_Backend.services.UserService;
+import com.ucb.Nexo_Backend.dto.AdministratorRequest;
+import com.ucb.Nexo_Backend.models.Transaction;
+import com.ucb.Nexo_Backend.services.AdministratorService;
+import com.ucb.Nexo_Backend.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+
 @CrossOrigin(origins = "*")
 @RestController
 public class AdmiController {
 
-    private UserService service;
+    private AdministratorService service;
     @Autowired
-    public void setServices(UserService service){
+    public AdmiController(AdministratorService service){
         this.service=service;
     }
 
-    @GetMapping(value = "/administrator/{administratorId}")
-    public List<Administrator> getUserBy(@PathVariable int admiId){
-        return this.service.getByUserId(admiId);
+    @RequestMapping(path="/administrator/login",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public AdministratorRequest SignIn(@RequestBody AdministratorRequest admiRequest, HttpServletRequest request) {
+
+        TransactionUtil transactionUtil = new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+
+        return service.SignIn(admiRequest,transaction);
     }
 
 }

@@ -11,7 +11,7 @@ public class TransactionUtil {
         transaction.setTxDate(new Date());
         transaction.setTxUpdate(new Date());
         transaction.setTxHost(request.getRemoteHost());
-        transaction.setTxIdUser(1);
+        transaction.setTxIdAdmi(1);
         return transaction;
     }
 }

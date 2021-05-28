@@ -65,9 +65,9 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         Claims claims = (Claims) jwt.getBody();
         List<String> authorities =  (List) claims.get("authorities");
         System.out.println(claims);
-        AdministratorInformation userInformation=new AdministratorInformation();
-        userInformation.setIdAdministrator(Integer.parseInt(jwt.getHeader().get("idAdministrator").toString()));
-        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(claims.getSubject(), userInformation,
+        AdministratorInformation admiInformation=new AdministratorInformation();
+        admiInformation.setIdAdministrator(Integer.parseInt(jwt.getHeader().get("idAdministrator").toString()));
+        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(claims.getSubject(), admiInformation,
                 authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
         SecurityContextHolder.getContext().setAuthentication(auth);
 

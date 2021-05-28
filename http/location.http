@@ -40,7 +40,9 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/municipios/date?id=tj10&date1=2021-01-01&date2=2021-01-07
+GET http://localhost:8080/municipios/date?id=be0&date1=2021-01-01&date2=2021-01-07
+Authorization: Basic {{xime}} {{xime}}
 Accept: application/json
 
 ###
+

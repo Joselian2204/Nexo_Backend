@@ -8,8 +8,8 @@ import javax.persistence.Id;
 public class Administrator {
     @Id
     @GeneratedValue
-    @Column(name = "id_admi")
-    private int idUser;
+    @Column(name = "id_administrator")
+    private int idAdministrator;
     private String password;
     private String name;
     private String email;
@@ -19,12 +19,12 @@ public class Administrator {
     public Administrator() {
     }
 
-    public int getIdUser() {
-        return idUser;
+    public void setIdAdministrator(int idAdministrator) {
+        this.idAdministrator = idAdministrator;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public int getIdAdministrator() {
+        return idAdministrator;
     }
 
     public String getPassword() {
@@ -61,8 +61,8 @@ public class Administrator {
 
     @Override
     public String toString() {
-        return "User{" +
-                "idUser='" + idUser + '\'' +
+        return "Administrator{" +
+                "idAministrator=" + idAdministrator +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

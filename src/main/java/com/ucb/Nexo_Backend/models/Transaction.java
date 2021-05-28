@@ -3,11 +3,19 @@ import java.util.Date;
 
 public class Transaction {
     private Date txDate;
-    private int txIdUser;
+    private int txIdAdmi;
     private String txHost;
     private Date txUpdate;
 
     public Transaction() {
+    }
+
+    public int getTxIdAdmi() {
+        return txIdAdmi;
+    }
+
+    public void setTxIdAdmi(int txIdAdmi) {
+        this.txIdAdmi = txIdAdmi;
     }
 
     public Date getTxDate() {
@@ -18,13 +26,6 @@ public class Transaction {
         this.txDate = txDate;
     }
 
-    public int getTxIdUser() {
-        return txIdUser;
-    }
-
-    public void setTxIdUser(int txIdUser) {
-        this.txIdUser = txIdUser;
-    }
 
     public String getTxHost() {
         return txHost;
@@ -45,9 +46,9 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "tx_date=" + txDate +
-                ", txIduser=" + txIdUser +
-                ", host='" + txHost + '\'' +
+                "txDate=" + txDate +
+                ", txIdAdmi=" + txIdAdmi +
+                ", txHost='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
                 '}';
     }

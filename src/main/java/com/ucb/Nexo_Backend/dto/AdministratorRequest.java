@@ -1,13 +1,9 @@
 package com.ucb.Nexo_Backend.dto;
 
-import javax.persistence.Column;
-
 public class AdministratorRequest {
     private Integer idAdministrator;
     private String password;
-    private String name;
     private String email;
-    private String lastName;
     private String token;
 
     public AdministratorRequest() {
@@ -29,13 +25,6 @@ public class AdministratorRequest {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
@@ -45,13 +34,6 @@ public class AdministratorRequest {
         this.email = email;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getToken() {
         return token;
@@ -59,5 +41,15 @@ public class AdministratorRequest {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @Override
+    public String toString() {
+        return "AdministratorRequest{" +
+                "idAdministrator=" + idAdministrator +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", token='" + token + '\'' +
+                '}';
     }
 }
