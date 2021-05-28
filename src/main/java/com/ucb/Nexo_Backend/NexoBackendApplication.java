@@ -47,6 +47,7 @@ public class NexoBackendApplication {
 					.antMatchers(HttpMethod.GET, "/municipios/**").permitAll()
 					.antMatchers(HttpMethod.POST, "/administrator/login").permitAll()
 					.antMatchers(HttpMethod.GET, "/hospital").permitAll()
+					.antMatchers(HttpMethod.GET, "/pharmacy").permitAll()
 					.anyRequest().authenticated();
 		}
 		@Bean

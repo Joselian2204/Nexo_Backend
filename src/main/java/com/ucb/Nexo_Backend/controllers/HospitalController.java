@@ -1,7 +1,5 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.models.Administrator;
-import com.ucb.Nexo_Backend.models.Country;
 import com.ucb.Nexo_Backend.models.Hospital;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.services.HospitalService;

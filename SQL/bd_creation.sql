@@ -208,7 +208,7 @@ create table hospital(
     id_department varchar(10),
     name varchar(100) not null,
     location varchar(100) not null,
-    phoneNumber varchar(20) not null ,
+    phone_number varchar(20) not null ,
     lat decimal(10,5) NOT NULL,
     lng decimal(10,5) NOT NULL,
     tx_date datetime NOT NULL,
@@ -218,12 +218,17 @@ create table hospital(
 
 ALTER TABLE hospital ADD CONSTRAINT hospital_department FOREIGN KEY hospital_department (id_department)
     REFERENCES department (id_department);
+insert into hospital values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
+insert into pharmacy values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
+insert into pharmacy values (null,"BOL1293","Chavez","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
+
+
 create table pharmacy(
                          id_pharmacy int primary key auto_increment,
                          id_department varchar(10),
                          name varchar(100) not null,
                          location varchar(100) not null,
-                         phoneNumber varchar(20) not null ,
+                         phone_number varchar(20) not null ,
                          lat decimal(10,5) NOT NULL,
                          lng decimal(10,5) NOT NULL,
                          tx_date datetime NOT NULL,
@@ -231,7 +236,6 @@ create table pharmacy(
                          tx_host varchar(100) NOT NULL,
                          tx_update datetime NOT NULL);
 
-);
 ALTER TABLE pharmacy ADD CONSTRAINT pharmacy_department FOREIGN KEY pharmacy_department (id_department)
     REFERENCES department (id_department);
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());

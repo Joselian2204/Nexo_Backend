@@ -27,3 +27,9 @@ GET http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
 
+
+###
+GET http://localhost:8080/pharmacy
+Accept: application/json
+Content-Type: application/json
+

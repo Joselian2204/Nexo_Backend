@@ -7,11 +7,11 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Hospital {
+public class Pharmacy {
     @Id
     @GeneratedValue
-    @Column(name = "id_hospital")
-    private int idHospital;
+    @Column(name = "id_pharmacy")
+    private int idPharmacy;
     @Column(name = "id_department")
     private String idDepartment;
     private String name ;
@@ -28,15 +28,16 @@ public class Hospital {
     @Column(name = "tx_update")
     private Date txUpdate;
 
-    public Hospital() {
+    public Pharmacy() {
+
     }
 
-    public int getIdHospital() {
-        return idHospital;
+    public int getIdPharmacy() {
+        return idPharmacy;
     }
 
-    public void setIdHospital(int idHospital) {
-        this.idHospital = idHospital;
+    public void setIdPharmacy(int idPharmacy) {
+        this.idPharmacy = idPharmacy;
     }
 
     public String getIdDepartment() {
@@ -113,15 +114,15 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "Hospital{" +
-                "idHospital=" + idHospital +
+        return "Pharmacy{" +
+                "idPharmacy=" + idPharmacy +
                 ", idDepartment='" + idDepartment + '\'' +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", lng='" + lng + '\'' +
                 ", txDate=" + txDate +
-                ", txIdUser=" + txIdAdministrator +
+                ", txIdAdministrator=" + txIdAdministrator +
                 ", txHost='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
                 '}';
