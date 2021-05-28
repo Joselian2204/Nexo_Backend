@@ -14,4 +14,11 @@ public class AdministratorInformation {
     public Integer getIdAdministrator() {
         return idAdministrator;
     }
+
+    @Override
+    public String toString() {
+        return "AdministratorInformation{" +
+                "idAdministrator=" + idAdministrator +
+                '}';
+    }
 }

@@ -5,14 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public class AdministratorUtil {
-    public AdministratorInformation informationAdministrator(){
-
-        Authentication a= SecurityContextHolder.getContext().getAuthentication();
-        AdministratorInformation administratorInformation=(AdministratorInformation) a.getCredentials();
-        return administratorInformation;
-    }
     public Integer getIdAdministrator(){
-
         Authentication a= SecurityContextHolder.getContext().getAuthentication();
         AdministratorInformation administratorInformation=(AdministratorInformation) a.getCredentials();
         return administratorInformation.getIdAdministrator();

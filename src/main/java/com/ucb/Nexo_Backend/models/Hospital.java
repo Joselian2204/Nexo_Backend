@@ -4,12 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Hospital {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_hospital")
     private int idHospital;
     @Column(name = "id_department")
@@ -18,6 +19,7 @@ public class Hospital {
     private String location ;
     @Column(name = "phone_number")
     private String phoneNumber ;
+    private Float lat;
     private String lng;
     @Column(name = "tx_date")
     private Date txDate;
@@ -111,6 +113,14 @@ public class Hospital {
         this.txUpdate = txUpdate;
     }
 
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
+
     @Override
     public String toString() {
         return "Hospital{" +
@@ -119,9 +129,10 @@ public class Hospital {
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", lat=" + lat +
                 ", lng='" + lng + '\'' +
                 ", txDate=" + txDate +
-                ", txIdUser=" + txIdAdministrator +
+                ", txIdAdministrator=" + txIdAdministrator +
                 ", txHost='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
                 '}';

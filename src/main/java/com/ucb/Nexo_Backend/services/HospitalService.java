@@ -25,6 +25,9 @@ public class HospitalService {
         hospital.setTxIdAdministrator(transaction.getTxIdAdmi());
         hospital.setTxHost(transaction.getTxHost());
         hospital.setTxUpdate(transaction.getTxUpdate());
+
+        System.out.println("Create Service");
+        System.out.println(hospital);
         hospitalRepository.save(hospital);
         //hospital.setIdHospital(transactionRepository.createSQLQuery("SELECT LAST_INSERT_ID()"));
         return hospital;

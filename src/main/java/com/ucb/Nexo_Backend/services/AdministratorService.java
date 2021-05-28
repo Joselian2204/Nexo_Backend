@@ -40,9 +40,12 @@ public class AdministratorService {
         if(admiInfo!=null){
             if(encoder.matches(administratorRequest.getPassword(),admiInfo.getPassword())){
                 Util jwtUtil=new Util();
+                administratorRequest.setIdAdministrator(admiInfo.getIdAdministrator());
                 String token = jwtUtil.getJWTToken(administratorRequest);
                 administratorRequest.setToken(token);
                 administratorRequest.setIdAdministrator(admiInfo.getIdAdministrator());
+                administratorRequest.setEmail("");
+                administratorRequest.setPassword("");
                 return administratorRequest;
             }
             else{

@@ -11,15 +11,15 @@ Content-Type: application/json
 POST http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIyMTgzNzUwLCJleHAiOjE2MjIyNzAxNTB9.mHzqjtbdEO8QxEhikk7UlR0ZgQvR-Bn52F7CYfw_5Mo1YKN3gwgHu_-9CRlvuzahWZz8NsOVi-64AYZ9KnDvgw
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjIxMzk0NSwiZXhwIjoxNjIyMzAwMzQ1fQ._qOp933HwDrQCvP6UDkgScq7qFtNhr25cY6U106QPoAdroMJV304vmrjePd53XVzKSFIRUjXJIJ_sA9j0eJuLQ
 
 {
   "idDepartment": "BOL1293",
   "name": "Cruz Roja",
   "location": "Miraflores",
   "phoneNumber":"7894561",
-  "lng": 32.85,
-  "lng": 68.4167
+  "lat": 32.85,
+  "lng": 68.416
 }
 
 ###

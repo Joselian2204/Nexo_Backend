@@ -26,6 +26,7 @@ public class HospitalController {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
         Integer idAdmi=administratorUtil.getIdAdministrator();
+        System.out.println(idAdmi);
         Transaction transaction = transactionUtil.createTransaction(request);
         transaction.setTxIdAdmi(idAdmi);
         hospital=service.create(hospital,transaction);

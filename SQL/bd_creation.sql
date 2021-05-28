@@ -241,3 +241,8 @@ ALTER TABLE pharmacy ADD CONSTRAINT pharmacy_department FOREIGN KEY pharmacy_dep
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","josemar.castro@ucb.edu.bo",1,NOW(),1,"192.168.100.48", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","ximena.cruz@ucb.edu.bo",1,NOW(),1,"192.168.0.18", NOW());
+create table hibernate_sequences(
+                                    sequence_name VARCHAR(255) NOT NULL,
+                                    next_val INTEGER NOT NULL
+);
+select * from hospital;

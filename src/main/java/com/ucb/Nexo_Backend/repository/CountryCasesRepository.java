@@ -11,7 +11,7 @@ public interface CountryCasesRepository extends JpaRepository<CountryCases, Inte
     public List<CountryCases> findByCountryIdOrderByDate(String id);
     public List<CountryCases> findByCountryIdAndDateBetween(String id,Date date1, Date date2);
 
-    @Query("select avg(cases) from CountryCases where id= #{idCountry}")
-    public Long getCases(String idCountry);
+    //@Query("select avg(cases) from CountryCases where id= #{idCountry}")
+    //public Long getCases(String idCountry);
 
 }

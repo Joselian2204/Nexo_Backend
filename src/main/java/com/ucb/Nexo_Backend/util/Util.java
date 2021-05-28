@@ -16,13 +16,12 @@ public class Util {
     public String getJWTToken(AdministratorRequest administratorRequest) {
         String secretKey = "mySecretKey12345678913245678913245678913245687912312312312312312312313123123123123123123123123123213123123123123123123123";
         SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey));
+        System.out.println(administratorRequest.getIdAdministrator());
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-                .commaSeparatedStringToAuthorityList("ROLE_USER");
-
+                .commaSeparatedStringToAuthorityList("ROLE_ADMIN");
         String token = Jwts
                 .builder().
-
-                        setHeaderParam("idAdministrator",administratorRequest.getIdAdministrator())
+                        setHeaderParam("idAdmin",administratorRequest.getIdAdministrator())
                 .claim("authorities",
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)
