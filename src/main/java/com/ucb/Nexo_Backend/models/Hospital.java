@@ -20,7 +20,7 @@ public class Hospital {
     @Column(name = "phone_number")
     private String phoneNumber ;
     private Float lat;
-    private String lng;
+    private Float lng;
     @Column(name = "tx_date")
     private Date txDate;
     @Column(name = "tx_id_administrator")
@@ -73,11 +73,11 @@ public class Hospital {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLng() {
+    public Float getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Float lng) {
         this.lng = lng;
     }
 

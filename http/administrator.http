@@ -23,6 +23,21 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
 }
 
 ###
+POST http://localhost:8080/pharmacy
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjIxMzk0NSwiZXhwIjoxNjIyMzAwMzQ1fQ._qOp933HwDrQCvP6UDkgScq7qFtNhr25cY6U106QPoAdroMJV304vmrjePd53XVzKSFIRUjXJIJ_sA9j0eJuLQ
+
+{
+  "idDepartment": "BOL1293",
+  "name": "Cruz Roja",
+  "location": "Miraflores",
+  "phoneNumber":"7894561",
+  "lat": 32.85,
+  "lng": 68.416
+}
+
+###
 GET http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json

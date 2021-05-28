@@ -1,15 +1,12 @@
 package com.ucb.Nexo_Backend.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Pharmacy {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id_pharmacy")
     private int idPharmacy;
     @Column(name = "id_department")
@@ -18,7 +15,8 @@ public class Pharmacy {
     private String location ;
     @Column(name = "phone_number")
     private String phoneNumber ;
-    private String lng;
+    private Float lat;
+    private Float lng;
     @Column(name = "tx_date")
     private Date txDate;
     @Column(name = "tx_id_administrator")
@@ -72,11 +70,19 @@ public class Pharmacy {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLng() {
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
+
+    public Float getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Float lng) {
         this.lng = lng;
     }
 
@@ -120,7 +126,8 @@ public class Pharmacy {
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", lng='" + lng + '\'' +
+                ", lat=" + lat +
+                ", lng=" + lng +
                 ", txDate=" + txDate +
                 ", txIdAdministrator=" + txIdAdministrator +
                 ", txHost='" + txHost + '\'' +
