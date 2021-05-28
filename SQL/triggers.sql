@@ -153,3 +153,67 @@ BEGIN
 END;
 |
 DELIMITER ;
+use covid_db;
+drop trigger if exists tg_insert_h_administrator;
+drop trigger if exists tg_update_h_administrator;
+drop trigger if exists tg_update_h_hospital;
+drop trigger if exists tg_insert_h_hospital;
+DELIMITER |
+CREATE TRIGGER tg_insert_h_administrator
+    AFTER INSERT ON administrator
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_administrator`(`id_h_administrator`,`id_administrator`,`password`,`name`,`last_name`,`email`,`status`,`tx_date`,`tx_id_user`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_administrator,NEW.password,NEW.name,NEW.last_name,NEW.email,NEW.status,NEW.tx_id_user,NOW(),NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_update_h_administrator
+    AFTER UPDATE ON administrator
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_administrator`(`id_h_administrator`,`id_administrator`,`password`,`name`,`last_name`,`email`,`status`,`tx_id_user`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_administrator,NEW.password,NEW.name,NEW.last_name,NEW.email,NEW.status,NEW.tx_id_user,NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_insert_h_hospital
+    AFTER INSERT ON hospital
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_update_h_hospital
+    AFTER UPDATE ON hospital
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+DELIMITER |
+CREATE TRIGGER tg_insert_h_pharmacy
+    AFTER INSERT ON pharmacy
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_update_h_pharmacy
+    AFTER UPDATE ON pharmacy
+    FOR EACH ROW
+BEGIN
+    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
+END;
+|
+DELIMITER ;
+

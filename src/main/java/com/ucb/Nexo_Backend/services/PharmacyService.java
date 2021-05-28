@@ -1,9 +1,6 @@
 package com.ucb.Nexo_Backend.services;
 
-import com.ucb.Nexo_Backend.dto.HospitalRequest;
 import com.ucb.Nexo_Backend.dto.PharmacyRequest;
-
-import com.ucb.Nexo_Backend.models.Hospital;
 import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.repository.PharmacyRepository;
@@ -48,7 +45,7 @@ public class PharmacyService {
         return listPharmacyRequest;
     }
     public Pharmacy setPharmacy(PharmacyRequest pharmacyRequest, Pharmacy pharmacy){
-        pharmacy.setIdDepartment(pharmacy.getIdDepartment());
+        pharmacy.setIdDepartment(pharmacyRequest.getIdDepartment());
         pharmacy.setName(pharmacyRequest.getName());
         pharmacy.setLocation(pharmacyRequest.getLocation());
         pharmacy.setPhoneNumber(pharmacyRequest.getPhoneNumber());

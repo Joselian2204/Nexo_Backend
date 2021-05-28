@@ -192,6 +192,9 @@ ALTER TABLE municipality ADD CONSTRAINT municipios_departament FOREIGN KEY munic
 drop table if exists administrator;
 drop table if exists hospital;
 drop table if exists pharmacy;
+drop table if exists h_administrator;
+drop table if exists h_hospital;
+drop table if exists h_pharmacy;
 create  table administrator (
     id_administrator int primary key auto_increment,
     password varchar(255) not null,
@@ -218,10 +221,6 @@ create table hospital(
 
 ALTER TABLE hospital ADD CONSTRAINT hospital_department FOREIGN KEY hospital_department (id_department)
     REFERENCES department (id_department);
-insert into hospital values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
-insert into pharmacy values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
-insert into pharmacy values (null,"BOL1293","Chavez","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
-
 
 create table pharmacy(
                          id_pharmacy int primary key auto_increment,
@@ -238,11 +237,43 @@ create table pharmacy(
 
 ALTER TABLE pharmacy ADD CONSTRAINT pharmacy_department FOREIGN KEY pharmacy_department (id_department)
     REFERENCES department (id_department);
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","josemar.castro@ucb.edu.bo",1,NOW(),1,"192.168.100.48", NOW());
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","ximena.cruz@ucb.edu.bo",1,NOW(),1,"192.168.0.18", NOW());
-create table hibernate_sequences(
-                                    sequence_name VARCHAR(255) NOT NULL,
-                                    next_val INTEGER NOT NULL
-);
-select * from hospital;
+create  table h_administrator (
+                                id_h_administrator int primary key auto_increment,
+                                id_administrator int not null,
+                                password varchar(255) not null,
+                                name varchar(50) not null ,
+                                last_name varchar(50) not null,
+                                email varchar(100) not null,
+                                status tinyint NOT NULL,
+                                tx_date datetime NOT NULL,
+                                tx_id_user int NOT NULL,
+                                tx_host varchar(100) NOT NULL,
+                                tx_update datetime NOT NULL);
+create table h_hospital(
+                         id_h_hospital int primary key auto_increment,
+                         id_hospital int not null ,
+                         id_department varchar(10),
+                         name varchar(100) not null,
+                         location varchar(100) not null,
+                         phone_number varchar(20) not null ,
+                         lat decimal(10,5) NOT NULL,
+                         lng decimal(10,5) NOT NULL,
+                         tx_date datetime NOT NULL,
+                         tx_id_administrator int NOT NULL,
+                         tx_host varchar(100) NOT NULL,
+                         tx_update datetime NOT NULL);
+
+create table h_pharmacy(
+                         id_h_pharmacy int primary key auto_increment,
+                         id_pharmacy int not null ,
+                         id_department varchar(10),
+                         name varchar(100) not null,
+                         location varchar(100) not null,
+                         phone_number varchar(20) not null ,
+                         lat decimal(10,5) NOT NULL,
+                         lng decimal(10,5) NOT NULL,
+                         tx_date datetime NOT NULL,
+                         tx_id_administrator int NOT NULL,
+                         tx_host varchar(100) NOT NULL,
+                         tx_update datetime NOT NULL);
+
