@@ -1,6 +1,6 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.models.Hospital;
+import com.ucb.Nexo_Backend.dto.PharmacyRequest;
 import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.services.PharmacyService;
@@ -25,19 +25,18 @@ public class PharmacyController {
         this.service = service;
     }
     @GetMapping()
-    public List<Pharmacy> getHospitals(){
+    public List<PharmacyRequest> getHospitals(){
         return service.getAll();
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Pharmacy create(@RequestBody Pharmacy pharmacy, HttpServletRequest request) {
+    public PharmacyRequest create(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
         Integer idAdmi=administratorUtil.getIdAdministrator();
-        System.out.println(idAdmi);
         Transaction transaction = transactionUtil.createTransaction(request);
         transaction.setTxIdAdmi(idAdmi);
-        pharmacy=service.create(pharmacy,transaction);
-        return pharmacy;
+        pharmacyRequest=service.create(pharmacyRequest,transaction);
+        return pharmacyRequest;
     }
 }
