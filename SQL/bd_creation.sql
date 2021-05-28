@@ -190,6 +190,8 @@ ALTER TABLE municipality ADD CONSTRAINT municipios_departament FOREIGN KEY munic
 
 -- Creacion table Usuario
 drop table if exists administrator;
+drop table if exists hospital;
+drop table if exists pharmacy;
 create  table administrator (
     id_administrator int primary key auto_increment,
     password varchar(255) not null,
@@ -201,4 +203,37 @@ create  table administrator (
     tx_id_user int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_update datetime NOT NULL);
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","munoz","sil@gmail.com",1,NOW(),1,"192.168.1.18", NOW())
+create table hospital(
+    id_hospital int primary key auto_increment,
+    id_department varchar(10),
+    name varchar(100) not null,
+    location varchar(100) not null,
+    phoneNumber varchar(20) not null ,
+    lat decimal(10,5) NOT NULL,
+    lng decimal(10,5) NOT NULL,
+    tx_date datetime NOT NULL,
+    tx_id_administrator int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_update datetime NOT NULL);
+
+ALTER TABLE hospital ADD CONSTRAINT hospital_department FOREIGN KEY hospital_department (id_department)
+    REFERENCES department (id_department);
+create table pharmacy(
+                         id_pharmacy int primary key auto_increment,
+                         id_department varchar(10),
+                         name varchar(100) not null,
+                         location varchar(100) not null,
+                         phoneNumber varchar(20) not null ,
+                         lat decimal(10,5) NOT NULL,
+                         lng decimal(10,5) NOT NULL,
+                         tx_date datetime NOT NULL,
+                         tx_id_administrator int NOT NULL,
+                         tx_host varchar(100) NOT NULL,
+                         tx_update datetime NOT NULL);
+
+);
+ALTER TABLE pharmacy ADD CONSTRAINT pharmacy_department FOREIGN KEY pharmacy_department (id_department)
+    REFERENCES department (id_department);
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","josemar.castro@ucb.edu.bo",1,NOW(),1,"192.168.100.48", NOW());
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","ximena.cruz@ucb.edu.bo",1,NOW(),1,"192.168.0.18", NOW());

@@ -52,8 +52,11 @@ public class AuthorizationFilter extends OncePerRequestFilter {
     }
     private boolean existeJWTToken(HttpServletRequest request, HttpServletResponse res) {
         String authenticationHeader = request.getHeader(HEADER);
-        if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX))
-            return false;
+
+        if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX)){
+
+        return false;
+    }
         return true;
     }
     private Jwt validateToken(HttpServletRequest request) {
@@ -64,6 +67,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         @SuppressWarnings("unchecked")
         Claims claims = (Claims) jwt.getBody();
         List<String> authorities =  (List) claims.get("authorities");
+        System.out.println("SetUp");
         System.out.println(claims);
         AdministratorInformation admiInformation=new AdministratorInformation();
         admiInformation.setIdAdministrator(Integer.parseInt(jwt.getHeader().get("idAdministrator").toString()));

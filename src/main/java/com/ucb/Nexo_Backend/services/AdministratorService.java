@@ -26,10 +26,6 @@ public class AdministratorService {
         this.admiRepo = repo;
     }
 
-    public List<Administrator>  getByAdministratorId(int idAdmi){
-        return admiRepo.findByIdAdministrator(idAdmi);
-    }
-
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     class SignInFailed extends RuntimeException {
         public SignInFailed(String message) {
@@ -40,15 +36,14 @@ public class AdministratorService {
     public AdministratorRequest SignIn(AdministratorRequest administratorRequest, Transaction transaction){
 
         Administrator admiInfo=admiRepo.findByEmail(administratorRequest.getEmail());
-        AdministratorRequest admiRequest = new AdministratorRequest();
-        admiRequest = administratorRequest;
         System.out.println("Ya entre");
         if(admiInfo!=null){
             if(encoder.matches(administratorRequest.getPassword(),admiInfo.getPassword())){
                 Util jwtUtil=new Util();
-                String token = jwtUtil.getJWTToken(admiRequest);
-                admiRequest.setToken(token);
-                return admiRequest;
+                String token = jwtUtil.getJWTToken(administratorRequest);
+                administratorRequest.setToken(token);
+                administratorRequest.setIdAdministrator(admiInfo.getIdAdministrator());
+                return administratorRequest;
             }
             else{
 

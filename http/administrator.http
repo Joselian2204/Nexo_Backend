@@ -6,3 +6,24 @@ Content-Type: application/json
   "email": "sil@gmail.com",
   "password": "abc1234"
 }
+
+###
+POST http://localhost:8080/hospital
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIyMTgzNzUwLCJleHAiOjE2MjIyNzAxNTB9.mHzqjtbdEO8QxEhikk7UlR0ZgQvR-Bn52F7CYfw_5Mo1YKN3gwgHu_-9CRlvuzahWZz8NsOVi-64AYZ9KnDvgw
+
+{
+  "idDepartment": "BOL1293",
+  "name": "Cruz Roja",
+  "location": "Miraflores",
+  "phoneNumber":"7894561",
+  "lng": 32.85,
+  "lng": 68.4167
+}
+
+###
+GET http://localhost:8080/hospital
+Accept: application/json
+Content-Type: application/json
+
