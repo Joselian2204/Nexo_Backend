@@ -1,5 +1,6 @@
 package com.ucb.Nexo_Backend.repository;
 
+import com.ucb.Nexo_Backend.models.Country;
 import com.ucb.Nexo_Backend.models.CountryCases;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,5 +14,4 @@ public interface CountryCasesRepository extends JpaRepository<CountryCases, Inte
 
     //@Query("select avg(cases) from CountryCases where id= #{idCountry}")
     //public Long getCases(String idCountry);
-
 }

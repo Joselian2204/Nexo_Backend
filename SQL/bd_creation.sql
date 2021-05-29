@@ -94,6 +94,8 @@ CREATE TABLE department (
                             CONSTRAINT department_pk PRIMARY KEY (id_department)
 );
 
+
+
 -- Table: h_day_country
 CREATE TABLE h_day_country (
                                id_h_day_country int NOT NULL AUTO_INCREMENT,

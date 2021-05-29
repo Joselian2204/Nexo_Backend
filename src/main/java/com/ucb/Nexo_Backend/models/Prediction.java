@@ -1,13 +1,8 @@
 package com.ucb.Nexo_Backend.models;
-
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
 public class Prediction {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id_prediction")
+
     private String id;
     private Date date;
     private long cases;
