@@ -19,8 +19,8 @@ public class PredictionController {
 
 
     @GetMapping(value = "/prediction/{id}")
-    public List<Prediction> getCountries(@PathVariable String id){
-        return service.getByDateCountryId(id);
+    public List<Prediction> getCountries(@PathVariable String id,@RequestParam Integer cant){
+        return service.getByDateCountryId(id,cant);
     }
 
 }

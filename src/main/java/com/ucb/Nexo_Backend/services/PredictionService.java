@@ -21,10 +21,10 @@ public class PredictionService {
     public void setRepo(PredictionRepository repo) {
         this.repo = repo;
     }
-    public List<Prediction> getByDateCountryId(String id){
+    public List<Prediction> getByDateCountryId(String id,Integer cant){
         List<CountryCases> listcases= new ArrayList<>();
         listcases= repo.findByCountryIdOrderByDateAsc(id);
-        List<Prediction> listcasespredic= PredictionUtil.prediction(listcases);
+        List<Prediction> listcasespredic= PredictionUtil.prediction(listcases,cant);
         return listcasespredic;
 
     }

@@ -5,24 +5,58 @@ import com.ucb.Nexo_Backend.models.Prediction;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PredictionUtil {
-    public static List<Prediction> prediction(List<CountryCases> listcases){
-        return null;
-    }
-    public static void main(String[] args) throws IOException {
-        double x=Math.log(32);
-        System.out.println(x);
 
-        int con=cantidad("Datosn.txt");
+    public static List<Prediction> prediction(List<CountryCases> listcases,Integer cant){
+        List<Prediction> listprediction = new ArrayList<>();
+        String countryId="";
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        int con= listcases.size();
         double [][] vector=new double[con][1];
-        double [][] vector1=datosG("Datosn.txt",vector);
-        con=con-1;
-        generarPrediccion(100,con,vector1);
+        double [][] prediction=new double[con][1];
+        int countcases=0;
+        for (int i=0;i<con;i++){
+            CountryCases countryCases = new CountryCases();
+            countryCases= listcases.get(i);
+            Prediction predictions= new Prediction();
+            predictions.setCases(countryCases.getNewCases());
+            predictions.setDate(countryCases.getDate());
+            predictions.setStatus(0);
+            countryId=countryCases.getCountryId();
+
+            c.setTime(countryCases.getDate());
+            predictions.setId(countryCases.getCountryId());
+            listprediction.add(predictions);
+            if(countryCases.getNewCases()>0){
+
+                prediction[countcases][0]= countryCases.getNewCases();
+                countcases=countcases+1;
+            }
+        }
+        int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
+
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            Prediction predictions= new Prediction();
+            predictions.setCases(prediccionsucesfull[i]);
+            c.add(Calendar.DATE, 1);
+            dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction.add(predictions);
+        }
+        return listprediction;
     }
 
-    private static void generarPrediccion(int cantidad,int con, double[][] vector1) {
+    private static int[] generarPrediccion(int cantidad, int con, double[][] vector1) {
+        int [] pre= new int[cantidad];
         for(int i=0;i<cantidad;i++) {
             double[][] datosXY=generarXY(vector1,con);
             //Suma de XY
@@ -56,7 +90,8 @@ public class PredictionUtil {
             //System.out.println("b0: "+b0);
             //System.out.println("dato ex"+ Math.exp(b0+b1*datosXY[datosXY.length-1][0]));
             double val= Math.exp(b0+b1*datosXY[datosXY.length-1][0]);
-            System.out.printf("\n%.0f", val);
+            //System.out.printf("\n%.0f", val);
+            pre[i]= (int) val;
             con=con+1;
             double [][] nuevoDatos=new double[con+1][1];
             for (int c=0;c<nuevoDatos.length-1;c++){
@@ -73,6 +108,7 @@ public class PredictionUtil {
                 //System.out.print(vector1[c][0]+" ");
             }
         }
+        return pre;
     }
 
     public static double[][] generarXY(double[][] vector1,int con){

@@ -6,6 +6,7 @@ public class Prediction {
     private String id;
     private Date date;
     private long cases;
+    private Integer status;
 
     public Prediction() {
     }
@@ -34,12 +35,21 @@ public class Prediction {
         this.cases = cases;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Prediction{" +
                 "id='" + id + '\'' +
                 ", date=" + date +
                 ", cases=" + cases +
+                ", status=" + status +
                 '}';
     }
 }
