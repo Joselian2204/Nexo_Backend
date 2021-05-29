@@ -11,13 +11,13 @@ Content-Type: application/json
 POST http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjIxMzk0NSwiZXhwIjoxNjIyMzAwMzQ1fQ._qOp933HwDrQCvP6UDkgScq7qFtNhr25cY6U106QPoAdroMJV304vmrjePd53XVzKSFIRUjXJIJ_sA9j0eJuLQ
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjMwNDMxNiwiZXhwIjoxNjIyMzkwNzE2fQ.w31EwQ7xDFtl1OPqtPl4_UP1wGmRTY5O3ziMurmzMEaVBYyB54-584y2S2Q3VIsm0IyoWAztCNt5V0l8UKXNow
 
 {
   "idDepartment": "BOL1293",
-  "name": "Cruz Roja",
+  "name": "Obrero",
   "location": "Miraflores",
-  "phoneNumber":"7894561",
+  "phoneNumber":"852369",
   "lat": 32.85,
   "lng": 68.416
 }
@@ -26,7 +26,7 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
 POST http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjIxMzk0NSwiZXhwIjoxNjIyMzAwMzQ1fQ._qOp933HwDrQCvP6UDkgScq7qFtNhr25cY6U106QPoAdroMJV304vmrjePd53XVzKSFIRUjXJIJ_sA9j0eJuLQ
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjMwNDMxNiwiZXhwIjoxNjIyMzkwNzE2fQ.w31EwQ7xDFtl1OPqtPl4_UP1wGmRTY5O3ziMurmzMEaVBYyB54-584y2S2Q3VIsm0IyoWAztCNt5V0l8UKXNow
 
 {
   "idDepartment": "BOL1293",

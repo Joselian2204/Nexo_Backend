@@ -35,10 +35,10 @@ public class PharmacyService {
         return pharmacyRequest;
     }
     public List<PharmacyRequest> getAll(){
-        PharmacyRequest pharmacyRequest = new PharmacyRequest();
         List<Pharmacy> listPharmacy= this.pharmacyRepository.findAll();
         List<PharmacyRequest> listPharmacyRequest= new ArrayList<>();
         for (Pharmacy pharmacy: listPharmacy){
+            PharmacyRequest pharmacyRequest = new PharmacyRequest();
             pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
             listPharmacyRequest.add(pharmacyRequest);
         }
@@ -54,6 +54,7 @@ public class PharmacyService {
         return pharmacy;
     }
     public PharmacyRequest setPharmacyRequest(PharmacyRequest pharmacyRequest, Pharmacy pharmacy){
+        pharmacyRequest.setIdPharmacy(pharmacy.getIdPharmacy());
         pharmacyRequest.setIdDepartment(pharmacy.getIdDepartment());
         pharmacyRequest.setName(pharmacy.getName());
         pharmacyRequest.setLocation(pharmacy.getLocation());

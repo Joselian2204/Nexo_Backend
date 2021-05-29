@@ -540,11 +540,9 @@ INSERT INTO municipality(id_department,name,lat,lng,id_municipality,cases,year_c
 INSERT INTO municipality(id_department,name,lat,lng,id_municipality,cases,year_census,vaccine,recovered,population,deaths) VALUES ('BOL1941','Yacuiba',-22.01282,-63.67748,'tj9',0,2019,0,0,106653.000,0);
 INSERT INTO municipality(id_department,name,lat,lng,id_municipality,cases,year_census,vaccine,recovered,population,deaths) VALUES ('BOL1941','Yunchara',-21.82160,-65.22956,'tj0',0,2019,0,0,5851.000,0);
 
-
 insert into hospital values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
 insert into pharmacy values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
 insert into pharmacy values (null,"BOL1293","Chavez","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
-
 
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","josemar.castro@ucb.edu.bo",1,NOW(),1,"192.168.100.48", NOW());
@@ -553,4 +551,4 @@ create table hibernate_sequences(
                                     sequence_name VARCHAR(255) NOT NULL,
                                     next_val INTEGER NOT NULL
 );
-select * from h_hospital;
+select * from hospital;

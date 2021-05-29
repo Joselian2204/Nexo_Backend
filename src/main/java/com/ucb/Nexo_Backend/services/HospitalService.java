@@ -28,18 +28,15 @@ public class HospitalService {
         hospital.setTxIdAdministrator(transaction.getTxIdAdmi());
         hospital.setTxHost(transaction.getTxHost());
         hospital.setTxUpdate(transaction.getTxUpdate());
-
-        System.out.println("Create Service");
-        System.out.println(hospital);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;
     }
     public List<HospitalRequest> getAll(){
-        HospitalRequest hospitalRequest = new HospitalRequest();
         List<Hospital> listHospital= this.hospitalRepository.findAll();
         List<HospitalRequest> listHospitalRequest= new ArrayList<>();
         for (Hospital hospital: listHospital){
+            HospitalRequest hospitalRequest = new HospitalRequest();
             hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
             listHospitalRequest.add(hospitalRequest);
         }
