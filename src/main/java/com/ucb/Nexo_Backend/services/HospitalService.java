@@ -40,18 +40,16 @@ public class HospitalService {
     public List<HospitalRequest> getAll(){
         List<Hospital> listHospital= this.hospitalRepository.findAll();
         List<HospitalRequest> listHospitalRequest= new ArrayList<>();
+        List<Department> departments = departmentRepository.findAll();
         for (Hospital hospital: listHospital){
             HospitalRequest hospitalRequest = new HospitalRequest();
             hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
-            Optional<Department> department = departmentRepository.findById(hospitalRequest.getIdDepartment());
-            if (department.isPresent()) {
-                hospitalRequest.setIdDepartment(department.get().getName());
-            }
+            hospitalRequest.setIdDepartment(searchDepartment(departments,hospitalRequest.getIdDepartment()));
             listHospitalRequest.add(hospitalRequest);
         }
         return listHospitalRequest;
     }
-    public Hospital setHospital(HospitalRequest hospitalRequest, Hospital hospital){
+    private Hospital setHospital(HospitalRequest hospitalRequest, Hospital hospital){
         hospital.setIdDepartment(hospitalRequest.getIdDepartment());
         hospital.setName(hospitalRequest.getName());
         hospital.setLocation(hospitalRequest.getLocation());
@@ -60,7 +58,7 @@ public class HospitalService {
         hospital.setLat(hospitalRequest.getLat());
         return hospital;
     }
-    public HospitalRequest setHospitalRequest(HospitalRequest hospitalRequest, Hospital hospital){
+    private HospitalRequest setHospitalRequest(HospitalRequest hospitalRequest, Hospital hospital){
         hospitalRequest.setIdDepartment(hospital.getIdDepartment());
         hospitalRequest.setName(hospital.getName());
         hospitalRequest.setLocation(hospital.getLocation());
@@ -69,5 +67,13 @@ public class HospitalService {
         hospitalRequest.setLat(hospital.getLat());
         hospitalRequest.setIdHospital(hospital.getIdHospital());
         return hospitalRequest;
+    }
+    private String searchDepartment(List<Department> departments, String id){
+        String nameDepartment="";
+        for(Department department: departments){
+            if(department.getId().equals(id))
+                nameDepartment = department.getName();
+        }
+        return nameDepartment;
     }
 }

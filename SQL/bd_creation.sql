@@ -279,3 +279,5 @@ create table h_pharmacy(
                          tx_host varchar(100) NOT NULL,
                          tx_update datetime NOT NULL);
 
+select * from pharmacy;
+delete from pharmacy where id_pharmacy = 5;

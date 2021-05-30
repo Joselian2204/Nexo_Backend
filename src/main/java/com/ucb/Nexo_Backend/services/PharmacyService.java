@@ -44,13 +44,11 @@ public class PharmacyService {
     public List<PharmacyRequest> getAll(){
         List<Pharmacy> listPharmacy= this.pharmacyRepository.findAll();
         List<PharmacyRequest> listPharmacyRequest= new ArrayList<>();
+        List<Department> departments = departmentRepository.findAll();
         for (Pharmacy pharmacy: listPharmacy){
             PharmacyRequest pharmacyRequest = new PharmacyRequest();
             pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
-            Optional<Department> department = departmentRepository.findById(pharmacyRequest.getIdDepartment());
-            if (department.isPresent()) {
-                pharmacyRequest.setIdDepartment(department.get().getName());
-            }
+            pharmacyRequest.setIdDepartment(searchDepartment(departments,pharmacyRequest.getIdDepartment()));
             listPharmacyRequest.add(pharmacyRequest);
         }
         return listPharmacyRequest;
@@ -74,6 +72,14 @@ public class PharmacyService {
         pharmacyRequest.setLat(pharmacy.getLat());
         pharmacyRequest.setIdPharmacy(pharmacy.getIdPharmacy());
         return pharmacyRequest;
+    }
+    private String searchDepartment(List<Department> departments, String id){
+        String nameDepartment="";
+        for(Department department: departments){
+            if(department.getId().equals(id))
+                nameDepartment = department.getName();
+        }
+        return nameDepartment;
     }
 
 }
