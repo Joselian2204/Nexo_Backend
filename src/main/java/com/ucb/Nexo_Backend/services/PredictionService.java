@@ -24,7 +24,7 @@ public class PredictionService {
     public List<Prediction> getByDateCountryId(String id,Integer cant){
         List<CountryCases> listcases= new ArrayList<>();
         listcases= repo.findByCountryIdOrderByDateAsc(id);
-        List<Prediction> listcasespredic= PredictionUtil.prediction(listcases,cant);
+        List<Prediction> listcasespredic= PredictionUtil.predictionAR1(listcases,cant);
         return listcasespredic;
 
     }

@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class PredictionUtil {
 
-    public static List<Prediction> prediction(List<CountryCases> listcases,Integer cant){
+    public static List<Prediction> predictionAR1(List<CountryCases> listcases,Integer cant){
         List<Prediction> listprediction = new ArrayList<>();
         String countryId="";
 
@@ -129,37 +129,6 @@ public class PredictionUtil {
         return datosXY;
     }
 
-    private static int cantidad(String s) throws IOException {
-        FileInputStream fis=new FileInputStream(s);
-        int valor=fis.read();
-        int cont=0;
-        while( (valor=fis.read()) != -1 ) {
-            if(valor=='\n') {
-                cont++;
-            }
-        }
-        fis.close();
-        return cont;
-    }
 
 
-    public static double [][] datosG(String archivo,double [][] vector) throws IOException {
-        FileInputStream fis=new FileInputStream(archivo);
-        int valor=fis.read();
-        int cont=0;
-        String reg="";
-        while(valor!=-1){
-            if(valor!='\n') {
-                reg = reg + (char)valor;
-            }else {
-                vector[cont][0]=Double.parseDouble(reg);
-                reg = "";
-                cont++;
-            }
-            valor=fis.read();
-        }
-        fis.close();
-        return vector;
-
-    }
 }
