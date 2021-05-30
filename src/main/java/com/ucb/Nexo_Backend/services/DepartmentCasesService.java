@@ -28,4 +28,13 @@ public class DepartmentCasesService {
         return repo.findByDepartmentIdAndDateBetween(id,d1, d2);
 
     }
+    public DepartmentCases getAverage(String id){
+
+        DepartmentCases departmentCases = new DepartmentCases();
+        departmentCases.setNewCases(repo.getCasesAverage(id));
+        departmentCases.setDeaths(repo.getDeathsAverage(id));
+        departmentCases.setVaccine(repo.getVaccineAverage(id));
+        departmentCases.setRecovered(repo.getRecoveredAverage(id));
+        return departmentCases;
+    }
 }

@@ -1,6 +1,5 @@
 package com.ucb.Nexo_Backend.services;
 
-import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.models.MunicipalityCases;
 import com.ucb.Nexo_Backend.repository.MunicipalityCasesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +26,14 @@ public class MunicipalityCasesService {
         Date d2=new SimpleDateFormat("yyyy-MM-dd").parse(date2);
         return repo.findByRegionIdAndDateBetween(id,d1, d2);
 
+    }
+    public MunicipalityCases getAverage(String id){
+
+        MunicipalityCases municipalityCases= new MunicipalityCases();
+        municipalityCases.setNewCases(repo.getCasesAverage(id));
+        municipalityCases.setDeaths(repo.getDeathsAverage(id));
+        municipalityCases.setVaccine(repo.getVaccineAverage(id));
+        municipalityCases.setRecovered(repo.getRecoveredAverage(id));
+        return municipalityCases;
     }
 }
