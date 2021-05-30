@@ -1,5 +1,6 @@
 package com.ucb.Nexo_Backend.util;
 
+import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.models.MunicipalityCases;
@@ -77,51 +78,12 @@ public class PredictionUtil {
         }
         return listprediction;
     }
-    public static List<Prediction> predictionMatrices(List<CountryCases> listcases,Integer cantidad){
-        List<Prediction> listprediction = new ArrayList<>();
-        int mx = listcases.size();
-        int nx = 2;
-        int ny = 1;
-        double[][] datosx=new double[mx][nx];
-        double[][] datosy=new double[mx][ny];
-        String countryId="";
-        Calendar c = Calendar.getInstance();
-        int indice = 0;
-
-        for (CountryCases countryCases: listcases){
-            datosx[indice][0] = 1;
-            datosx[indice][1] = indice + 1;
-            datosy[indice][0] = countryCases.getNewCases();
-            indice = indice + 1;
-            c.setTime(countryCases.getDate());
-        }
-        System.out.println(imprimir(datosx));
-        System.out.println(imprimir(datosy));
-        double[][] betas = generarBetas(datosx,datosy);
-        String cadena = imprimir(betas);
-        System.out.println(cadena);
-        long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
-        for (int i=0;i<prediccionsucesfull.length;i++){
-            Prediction predictions= new Prediction();
-            predictions.setCases(prediccionsucesfull[i][1]);
-            c.add(Calendar.DATE, 1);
-            Date dt = c.getTime();
-            predictions.setDate(dt);
-            predictions.setStatus(1);
-            predictions.setId(countryId);
-            listprediction.add(predictions);
-        }
-        return listprediction;
-    }
-
     public static List<Prediction> predictionDAR1(List<DepartmentCases> listcases, Integer cant, Integer filter){
         List<Prediction> listprediction1 = new ArrayList<>();
         String countryId="";
-
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
         int con= listcases.size();
-        double [][] vector=new double[con][1];
         double [][] prediction=new double[con][1];
         int countcases=0;
         for (int i=0;i<con;i++){
@@ -179,7 +141,6 @@ public class PredictionUtil {
         }
         return listprediction1;
     }
-
     public static List<Prediction> predictionMAR1(List<MunicipalityCases> listcases, Integer cant, Integer filter){
         List<Prediction> listprediction2 = new ArrayList<>();
         String countryId="";
@@ -245,7 +206,121 @@ public class PredictionUtil {
         }
         return listprediction2;
     }
+    public static List<PredictionRequest> predictionMatrixCountries(List<CountryCases> listcases, Integer cantidad, Integer filter){
+        List<PredictionRequest> listprediction = new ArrayList<>();
+        int mx = listcases.size();
+        int nx = 2;
+        int ny = 1;
+        double[][] datosx=new double[mx][nx];
+        double[][] datosy=new double[mx][ny];
+        String countryId="";
+        Calendar c = Calendar.getInstance();
+        int indice = 0;
+        for (CountryCases countryCases: listcases){
+            datosx[indice][0] = 1;
+            datosx[indice][1] = indice + 1;
+            if (filter==0){
+                datosy[indice][0] = countryCases.getNewCases();
+            }
+            else if (filter == 1) {
+                datosy[indice][0] = countryCases.getDeaths();
+            } else if (filter == 2) {
+                datosy[indice][0] = countryCases.getRecovered();
+            }
+            indice = indice + 1;
+            c.setTime(countryCases.getDate());
+        }
+        double[][] betas = generarBetas(datosx,datosy);
+        long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            PredictionRequest predictions= new PredictionRequest();
+            predictions.setCases(prediccionsucesfull[i][1]);
+            c.add(Calendar.DATE, 1);
+            Date dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction.add(predictions);
+        }
+        return listprediction;
+    }
+    public static List<PredictionRequest> predictionMatrixDepartments(List<DepartmentCases> listcases, Integer cantidad, Integer filter){
+        List<PredictionRequest> listprediction = new ArrayList<>();
+        int mx = listcases.size();
+        int nx = 2;
+        int ny = 1;
+        double[][] datosx=new double[mx][nx];
+        double[][] datosy=new double[mx][ny];
+        String countryId="";
+        Calendar c = Calendar.getInstance();
+        int indice = 0;
+        for (DepartmentCases departmentCases: listcases){
+            datosx[indice][0] = 1;
+            datosx[indice][1] = indice + 1;
+            if (filter==0){
+                datosy[indice][0] = departmentCases.getNewCases();
+            }
+            else if (filter == 1) {
+                datosy[indice][0] = departmentCases.getDeaths();
+            } else if (filter == 2) {
+                datosy[indice][0] = departmentCases.getRecovered();
+            }
+            indice = indice + 1;
+            c.setTime(departmentCases.getDate());
+        }
+        double[][] betas = generarBetas(datosx,datosy);
+        long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            PredictionRequest predictions= new PredictionRequest();
+            predictions.setCases(prediccionsucesfull[i][1]);
+            c.add(Calendar.DATE, 1);
+            Date dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction.add(predictions);
+        }
+        return listprediction;
+    }
+    public static List<PredictionRequest> predictionMatrixMunicipality(List<MunicipalityCases> listcases, Integer cantidad, Integer filter){
 
+        List<PredictionRequest> listprediction = new ArrayList<>();
+        int mx = listcases.size();
+        int nx = 2;
+        int ny = 1;
+        double[][] datosx=new double[mx][nx];
+        double[][] datosy=new double[mx][ny];
+        String countryId="";
+        Calendar c = Calendar.getInstance();
+        int indice = 0;
+        for (MunicipalityCases municipalityCases: listcases){
+            datosx[indice][0] = 1;
+            datosx[indice][1] = indice + 1;
+            if (filter==0){
+                datosy[indice][0] = municipalityCases.getNewCases();
+            }
+            else if (filter == 1) {
+                datosy[indice][0] = municipalityCases.getDeaths();
+            } else if (filter == 2) {
+                datosy[indice][0] = municipalityCases.getRecovered();
+            }
+            indice = indice + 1;
+            c.setTime(municipalityCases.getDate());
+        }
+        double[][] betas = generarBetas(datosx,datosy);
+        long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            PredictionRequest predictions= new PredictionRequest();
+            predictions.setCases(prediccionsucesfull[i][1]);
+            c.add(Calendar.DATE, 1);
+            Date dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction.add(predictions);
+        }
+        return listprediction;
+    }
     private static int[] generarPrediccion(int cantidad, int con, double[][] vector1) {
         int [] pre= new int[cantidad];
         for(int i=0;i<cantidad;i++) {
@@ -446,9 +521,7 @@ public class PredictionUtil {
             }
         }
     }
-    private static double[][] generarBetas(double xx[][],double yy[][]){
-        double[][] x={{1,49},{1,69},{1,89},{1,99},{1,109}};
-        double[][] y={{124},{95},{71},{45},{18}};
+    private static double[][] generarBetas(double x[][],double y[][]){
         int nx=x[0].length;
         double[][] matrizTras=transponerMatriz(x);
         double[][] multiplicadorA=multiplicacion(matrizTras,x);

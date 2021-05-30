@@ -1,5 +1,6 @@
 package com.ucb.Nexo_Backend.controllers;
 
+import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.*;
 import com.ucb.Nexo_Backend.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,6 @@ public class PredictionController {
     public List<Prediction> getCountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
         return service.getByDateCountryId(id,cant,filter);
     }
-    @GetMapping(value = "/prediction/matrix/{id}")
-    public List<Prediction> geLinealPredictiontCountries(@PathVariable String id,@RequestParam Integer cant){
-        return service.getLinealPredictionByDateCountryId(id,cant);
-    }
 
     @GetMapping(value = "/prediction/ar1/department/{id}")
     public List<Prediction> getDepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
@@ -35,6 +32,19 @@ public class PredictionController {
     @GetMapping(value = "/prediction/ar1/municipality/{id}")
     public List<Prediction> getMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
         return service.getByDateMunicipalityId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/mtx/country/{id}")
+    public List<PredictionRequest> getMatrixCountries(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
+        return service.getLinealPredictionByDateCountryId(id,cant,filter);
+    }
+    @GetMapping(value = "/prediction/mtx/department/{id}")
+    public List<PredictionRequest> getMatrixDepartment(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
+        return service.getLinealPredictionByDateDepartmentId(id,cant,filter);
+    }
+    @GetMapping(value = "/prediction/mtx/municipality/{id}")
+    public List<PredictionRequest> getMatrixMunicipality(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
+        return service.getLinealPredictionByDateMunicipalityId(id,cant,filter);
     }
 
 

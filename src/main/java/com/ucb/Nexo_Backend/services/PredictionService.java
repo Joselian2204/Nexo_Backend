@@ -1,4 +1,5 @@
 package com.ucb.Nexo_Backend.services;
+import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.Country;
 import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.Prediction;
@@ -32,12 +33,6 @@ public class PredictionService {
         return listcasespredic;
 
     }
-    public List<Prediction> getLinealPredictionByDateCountryId(String id,Integer cant){
-        List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
-        List<Prediction> listcasespredic= PredictionUtil.predictionMatrices(listcases,cant);
-        return listcasespredic;
-
-    }
     public List<Prediction> getByDateDepartmentId(String id,Integer cant,Integer filter){
         List<DepartmentCases> listcases1= new ArrayList<>();
         listcases1 = repo1.findByDepartmentIdOrderByDate(id);
@@ -50,6 +45,24 @@ public class PredictionService {
         listcases2= repo2.findByRegionIdOrderByDateAsc(id);
         List<Prediction> listcasespredic3= PredictionUtil.predictionMAR1(listcases2,cant,filter);
         return listcasespredic3;
+
+    }
+    public List<PredictionRequest> getLinealPredictionByDateCountryId(String id, Integer cant, Integer filter){
+        List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixCountries(listcases,cant, filter);
+        return listcasespredic;
+
+    }
+    public List<PredictionRequest> getLinealPredictionByDateDepartmentId(String id, Integer cant, Integer filter){
+        List<DepartmentCases>  listcases = repo1.findByDepartmentIdOrderByDate(id);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixDepartments(listcases,cant, filter);
+        return listcasespredic;
+
+    }
+    public List<PredictionRequest> getLinealPredictionByDateMunicipalityId(String id, Integer cant, Integer filter){
+        List<MunicipalityCases>  listcases= repo2.findByRegionIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixMunicipality(listcases,cant, filter);
+        return listcasespredic;
 
     }
 

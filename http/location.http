@@ -49,15 +49,16 @@ Accept: application/json
 GET http://localhost:8080/prediction/ar1/department/BOL1293?cant=5&filter=0
 Accept: application/json
 ###
-
-GET http://localhost:8080/prediction/AFG?cant=10
-Accept: application/json
-###
-GET http://localhost:8080/prediction/mtx/country/AFG?cant=10&filter=0
-Accept: application/json
-###
-GET http://localhost:8080/prediction/municipality/tj0?cant=5&filter=0
 GET http://localhost:8080/prediction/ar1/municipality/tj0?cant=5&filter=0
+Accept: application/json
+###
+GET http://localhost:8080/prediction/mtx/country/AFG?cant=10&filter=1
+Accept: application/json
+###
+GET http://localhost:8080/prediction/mtx/department/BOL1293?cant=5&filter=2
+Accept: application/json
+###
+GET http://localhost:8080/prediction/mtx/municipality/tj0?cant=5&filter=1
 Accept: application/json
 ###
 GET http://localhost:8080/country/average?id=BOL
