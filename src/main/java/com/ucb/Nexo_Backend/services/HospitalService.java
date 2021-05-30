@@ -1,8 +1,10 @@
 package com.ucb.Nexo_Backend.services;
 
 import com.ucb.Nexo_Backend.dto.HospitalRequest;
+import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.Hospital;
 import com.ucb.Nexo_Backend.models.Transaction;
+import com.ucb.Nexo_Backend.repository.DepartmentRepository;
 import com.ucb.Nexo_Backend.repository.HospitalRepository;
 import com.ucb.Nexo_Backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +12,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HospitalService {
     private HospitalRepository hospitalRepository;
+    private DepartmentRepository departmentRepository;
     private TransactionRepository transactionRepository;
     @Autowired
-    public HospitalService(HospitalRepository hospitalRepository, TransactionRepository transactionRepository){
+    public HospitalService(HospitalRepository hospitalRepository, TransactionRepository transactionRepository, DepartmentRepository departmentRepository){
         this.hospitalRepository=hospitalRepository;
         this.transactionRepository=transactionRepository;
+        this.departmentRepository=departmentRepository;
     }
 
     public HospitalRequest create(HospitalRequest hospitalRequest, Transaction transaction){
@@ -38,6 +43,10 @@ public class HospitalService {
         for (Hospital hospital: listHospital){
             HospitalRequest hospitalRequest = new HospitalRequest();
             hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
+            Optional<Department> department = departmentRepository.findById(hospitalRequest.getIdDepartment());
+            if (department.isPresent()) {
+                hospitalRequest.setIdDepartment(department.get().getName());
+            }
             listHospitalRequest.add(hospitalRequest);
         }
         return listHospitalRequest;

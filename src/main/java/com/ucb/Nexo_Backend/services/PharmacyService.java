@@ -1,8 +1,11 @@
 package com.ucb.Nexo_Backend.services;
 
 import com.ucb.Nexo_Backend.dto.PharmacyRequest;
+import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
+import com.ucb.Nexo_Backend.repository.DepartmentRepository;
+import com.ucb.Nexo_Backend.repository.HospitalRepository;
 import com.ucb.Nexo_Backend.repository.PharmacyRepository;
 import com.ucb.Nexo_Backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +13,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class PharmacyService {
     private PharmacyRepository pharmacyRepository;
+    private DepartmentRepository departmentRepository;
     private TransactionRepository transactionRepository;
 
     @Autowired
-    public PharmacyService(PharmacyRepository pharmacyRepository, TransactionRepository transactionRepository) {
+    public PharmacyService(PharmacyRepository pharmacyRepository, TransactionRepository transactionRepository, DepartmentRepository departmentRepository) {
         this.pharmacyRepository = pharmacyRepository;
         this.transactionRepository = transactionRepository;
+        this.departmentRepository=departmentRepository;
     }
     public PharmacyRequest create(PharmacyRequest pharmacyRequest, Transaction transaction){
         Pharmacy pharmacy = new Pharmacy();
@@ -40,6 +47,10 @@ public class PharmacyService {
         for (Pharmacy pharmacy: listPharmacy){
             PharmacyRequest pharmacyRequest = new PharmacyRequest();
             pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
+            Optional<Department> department = departmentRepository.findById(pharmacyRequest.getIdDepartment());
+            if (department.isPresent()) {
+                pharmacyRequest.setIdDepartment(department.get().getName());
+            }
             listPharmacyRequest.add(pharmacyRequest);
         }
         return listPharmacyRequest;
