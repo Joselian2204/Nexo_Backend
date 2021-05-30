@@ -23,4 +23,6 @@ public interface DepartmentCasesRepository extends JpaRepository<DepartmentCases
 
     @Query("select avg(recovered) from DepartmentCases where  departmentId= ?1")
     public Long getRecoveredAverage(String countryId);
+
+    public List<DepartmentCases> findByDepartmentIdOrderByDateAsc(String departmentId);
 }

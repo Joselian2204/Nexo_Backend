@@ -23,4 +23,6 @@ public interface CountryCasesRepository extends JpaRepository<CountryCases, Inte
 
     @Query("select avg(recovered) from CountryCases where countryId = ?1")
     public Long getRecoveredAverage(String countryId);
+
+    public List<CountryCases> findByCountryIdOrderByDateAsc(String countryId);
 }
