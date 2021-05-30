@@ -1,6 +1,5 @@
 package com.ucb.Nexo_Backend.services;
 
-import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.repository.DepartmentCasesRepository;
 import org.springframework.beans.factory.annotation.Autowired;

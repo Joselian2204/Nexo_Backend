@@ -12,9 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
-import java.util.List;
-
 @Service
 public class AdministratorService {
     private AdministratorRepository admiRepo;
@@ -36,7 +33,6 @@ public class AdministratorService {
     public AdministratorRequest SignIn(AdministratorRequest administratorRequest, Transaction transaction){
 
         Administrator admiInfo=admiRepo.findByEmail(administratorRequest.getEmail());
-        System.out.println("Ya entre");
         if(admiInfo!=null){
             if(encoder.matches(administratorRequest.getPassword(),admiInfo.getPassword())){
                 Util jwtUtil=new Util();

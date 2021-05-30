@@ -10,7 +10,6 @@ public class Prediction {
 
     public Prediction() {
     }
-
     public String getId() {
         return id;
     }

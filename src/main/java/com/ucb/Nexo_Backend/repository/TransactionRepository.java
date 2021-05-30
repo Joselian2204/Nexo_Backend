@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface TransactionRepository extends JpaRepository<Administrator, Integer>{
 
-//    @Query("SELECT LAST_INSERT_ID ()")
-  //  public Integer getLastInsertId();
+
 }

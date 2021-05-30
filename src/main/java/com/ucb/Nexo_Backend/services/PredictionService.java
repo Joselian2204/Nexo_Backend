@@ -1,4 +1,8 @@
 package com.ucb.Nexo_Backend.services;
+import com.ucb.Nexo_Backend.models.Country;
+import com.ucb.Nexo_Backend.models.CountryCases;
+import com.ucb.Nexo_Backend.models.Prediction;
+
 import com.ucb.Nexo_Backend.models.*;
 import com.ucb.Nexo_Backend.repository.*;
 import com.ucb.Nexo_Backend.util.PredictionUtil;
@@ -25,6 +29,12 @@ public class PredictionService {
         List<CountryCases> listcases= new ArrayList<>();
         listcases= repo.findByCountryIdOrderByDateAsc(id);
         List<Prediction> listcasespredic= PredictionUtil.predictionCAR1(listcases,cant,filter);
+        return listcasespredic;
+
+    }
+    public List<Prediction> getLinealPredictionByDateCountryId(String id,Integer cant){
+        List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
+        List<Prediction> listcasespredic= PredictionUtil.predictionMatrices(listcases,cant);
         return listcasespredic;
 
     }

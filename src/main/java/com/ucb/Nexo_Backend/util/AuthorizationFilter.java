@@ -32,16 +32,12 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         try {
             if (existeJWTToken(request, response)) {
                 var jwt = validateToken(request);
-                System.out.println(jwt.toString());
                 if (jwt.getBody() != null) {
-                    System.out.println("1");
                     setUpSpringAuthentication(jwt);
                 } else {
-                    System.out.println("2");
                     SecurityContextHolder.clearContext();
                 }
             } else {
-                System.out.println("3");
                 SecurityContextHolder.clearContext();
             }
             chain.doFilter(request, response);

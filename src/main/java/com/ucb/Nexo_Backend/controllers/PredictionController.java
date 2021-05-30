@@ -22,6 +22,10 @@ public class PredictionController {
     public List<Prediction> getCountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
         return service.getByDateCountryId(id,cant,filter);
     }
+    @GetMapping(value = "/prediction/matrix/{id}")
+    public List<Prediction> geLinealPredictiontCountries(@PathVariable String id,@RequestParam Integer cant){
+        return service.getLinealPredictionByDateCountryId(id,cant);
+    }
 
     @GetMapping(value = "/prediction/ar1/department/{id}")
     public List<Prediction> getDepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){

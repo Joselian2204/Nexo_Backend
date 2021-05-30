@@ -5,7 +5,7 @@ import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.repository.DepartmentRepository;
-import com.ucb.Nexo_Backend.repository.HospitalRepository;
+
 import com.ucb.Nexo_Backend.repository.PharmacyRepository;
 import com.ucb.Nexo_Backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
