@@ -1,6 +1,5 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.services.DepartmentCasesService;
@@ -43,5 +42,10 @@ public class DepartmentController {
     public List<DepartmentCases> getDates(@RequestParam String id, @RequestParam String date1, @RequestParam String date2) throws ParseException {
 
         return casesService.getByDateId(id,date1,date2);
+    }
+    @GetMapping(value = "/department/average")
+    public DepartmentCases getCases(@RequestParam String id){
+        System.out.println("Estoy aca");
+        return casesService.getAverage(id);
     }
 }

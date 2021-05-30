@@ -1,8 +1,11 @@
 package com.ucb.Nexo_Backend.repository;
 
 import com.ucb.Nexo_Backend.models.Country;
+import com.ucb.Nexo_Backend.models.DepartmentCases;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface CountryRepository extends JpaRepository<Country, String> {
     @Query("select sum(cases) from Country")
@@ -13,5 +16,7 @@ public interface CountryRepository extends JpaRepository<Country, String> {
     public Long getRecovered();
     @Query("select sum(vaccine) from Country ")
     public Long getVaccine();
+
+
 
 }

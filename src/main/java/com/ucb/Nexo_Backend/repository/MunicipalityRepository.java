@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MunicipalityRepository extends JpaRepository<Municipality, String > {
     public List<Municipality> findByRegionId(String  id);
+
+
 }

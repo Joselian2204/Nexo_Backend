@@ -30,6 +30,7 @@ CREATE TABLE country (
                          CONSTRAINT country_pk PRIMARY KEY (id_country)
 );
 
+
 -- Table: day_country
 CREATE TABLE day_country (
                              id_day_country int NOT NULL AUTO_INCREMENT,
@@ -45,6 +46,7 @@ CREATE TABLE day_country (
                              tx_update datetime NOT NULL,
                              CONSTRAINT day_country_pk PRIMARY KEY (id_day_country)
 );
+
 
 -- Table: day_department
 CREATE TABLE day_department (
@@ -279,3 +281,4 @@ create table h_pharmacy(
                          tx_host varchar(100) NOT NULL,
                          tx_update datetime NOT NULL);
 
+select * from municipality where id_department="BOL1941";

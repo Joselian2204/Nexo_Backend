@@ -53,4 +53,15 @@ Accept: application/json
 GET http://localhost:8080/prediction/municipality/tj0?cant=5&filter=0
 Accept: application/json
 ###
+GET http://localhost:8080/country/average?id=BOL
+Accept: application/json
 
+###
+GET http://localhost:8080/department/average?id=BOL1941
+Accept: application/json
+
+###
+GET http://localhost:8080/municipios/average?id=tj5
+Accept: application/json
+
+###

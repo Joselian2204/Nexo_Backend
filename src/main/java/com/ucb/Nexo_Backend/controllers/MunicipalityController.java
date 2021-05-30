@@ -1,6 +1,5 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.Municipality;
 import com.ucb.Nexo_Backend.models.MunicipalityCases;
 import com.ucb.Nexo_Backend.services.MunicipalityCasesService;
@@ -38,9 +37,16 @@ public class MunicipalityController {
     public List<Municipality> getCasesByDepartment(@PathVariable String id){
         return service.getByDepartmentId(id);
     }
+
     @GetMapping(value = "/municipios/date")
     public List<MunicipalityCases> getDates(@RequestParam String id, @RequestParam String date1, @RequestParam String date2) throws ParseException {
         System.out.println("do");
         return casesService.getByDateId(id,date1,date2);
+    }
+
+    @GetMapping(value = "/municipios/average")
+    public MunicipalityCases getCases(@RequestParam String id){
+        System.out.println("Estoy aca");
+        return casesService.getAverage(id);
     }
 }

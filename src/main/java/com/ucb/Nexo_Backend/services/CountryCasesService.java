@@ -26,4 +26,13 @@ public class CountryCasesService {
         return repo.findByCountryIdAndDateBetween(id,d1, d2);
 
     }
+    public CountryCases getAverage(String id){
+        System.out.println("Estoy en servicio");
+        CountryCases countryCases = new CountryCases();
+        countryCases.setNewCases(repo.getCasesAverage(id));
+        countryCases.setDeaths(repo.getDeathsAverage(id));
+        countryCases.setVaccine(repo.getVaccineAverage(id));
+        countryCases.setRecovered(repo.getRecoveredAverage(id));
+        return countryCases;
+    }
 }

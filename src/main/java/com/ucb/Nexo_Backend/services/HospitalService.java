@@ -1,8 +1,10 @@
 package com.ucb.Nexo_Backend.services;
 
 import com.ucb.Nexo_Backend.dto.HospitalRequest;
+import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.Hospital;
 import com.ucb.Nexo_Backend.models.Transaction;
+import com.ucb.Nexo_Backend.repository.DepartmentRepository;
 import com.ucb.Nexo_Backend.repository.HospitalRepository;
 import com.ucb.Nexo_Backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +12,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HospitalService {
     private HospitalRepository hospitalRepository;
+    private DepartmentRepository departmentRepository;
     private TransactionRepository transactionRepository;
     @Autowired
-    public HospitalService(HospitalRepository hospitalRepository, TransactionRepository transactionRepository){
+    public HospitalService(HospitalRepository hospitalRepository, TransactionRepository transactionRepository, DepartmentRepository departmentRepository){
         this.hospitalRepository=hospitalRepository;
         this.transactionRepository=transactionRepository;
+        this.departmentRepository=departmentRepository;
     }
 
     public HospitalRequest create(HospitalRequest hospitalRequest, Transaction transaction){
@@ -35,14 +40,16 @@ public class HospitalService {
     public List<HospitalRequest> getAll(){
         List<Hospital> listHospital= this.hospitalRepository.findAll();
         List<HospitalRequest> listHospitalRequest= new ArrayList<>();
+        List<Department> departments = departmentRepository.findAll();
         for (Hospital hospital: listHospital){
             HospitalRequest hospitalRequest = new HospitalRequest();
             hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
+            hospitalRequest.setIdDepartment(searchDepartment(departments,hospitalRequest.getIdDepartment()));
             listHospitalRequest.add(hospitalRequest);
         }
         return listHospitalRequest;
     }
-    public Hospital setHospital(HospitalRequest hospitalRequest, Hospital hospital){
+    private Hospital setHospital(HospitalRequest hospitalRequest, Hospital hospital){
         hospital.setIdDepartment(hospitalRequest.getIdDepartment());
         hospital.setName(hospitalRequest.getName());
         hospital.setLocation(hospitalRequest.getLocation());
@@ -51,7 +58,7 @@ public class HospitalService {
         hospital.setLat(hospitalRequest.getLat());
         return hospital;
     }
-    public HospitalRequest setHospitalRequest(HospitalRequest hospitalRequest, Hospital hospital){
+    private HospitalRequest setHospitalRequest(HospitalRequest hospitalRequest, Hospital hospital){
         hospitalRequest.setIdDepartment(hospital.getIdDepartment());
         hospitalRequest.setName(hospital.getName());
         hospitalRequest.setLocation(hospital.getLocation());
@@ -60,5 +67,13 @@ public class HospitalService {
         hospitalRequest.setLat(hospital.getLat());
         hospitalRequest.setIdHospital(hospital.getIdHospital());
         return hospitalRequest;
+    }
+    private String searchDepartment(List<Department> departments, String id){
+        String nameDepartment="";
+        for(Department department: departments){
+            if(department.getId().equals(id))
+                nameDepartment = department.getName();
+        }
+        return nameDepartment;
     }
 }
