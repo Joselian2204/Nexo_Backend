@@ -11,4 +11,6 @@ public interface MunicipalityCasesRepository extends JpaRepository<MunicipalityC
     public List<MunicipalityCases> findByRegionIdOrderByDate(String id);
 
     public List<MunicipalityCases> findByRegionIdAndDateBetween(String id, Date date1, Date date2);
+
+    public List<MunicipalityCases> findByRegionIdOrderByDateAsc(String Id);
 }

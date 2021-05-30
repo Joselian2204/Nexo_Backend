@@ -18,9 +18,21 @@ public class PredictionController {
     }
 
 
-    @GetMapping(value = "/prediction/{id}")
-    public List<Prediction> getCountries(@PathVariable String id,@RequestParam Integer cant){
-        return service.getByDateCountryId(id,cant);
+    @GetMapping(value = "/prediction/country/{id}")
+    public List<Prediction> getCountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getByDateCountryId(id,cant,filter);
     }
+
+    /*@GetMapping(value = "/prediction/department/{id}")
+    public List<DepartmentCases> getDepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getByDateDepartmentId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/municipality/{id}")
+    public List<MunicipalityCases> getMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getByDateMunicipalityId(id,cant,filter);
+    }*/
+
+
 
 }

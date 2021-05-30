@@ -1,6 +1,8 @@
 package com.ucb.Nexo_Backend.util;
 
 import com.ucb.Nexo_Backend.models.CountryCases;
+import com.ucb.Nexo_Backend.models.DepartmentCases;
+import com.ucb.Nexo_Backend.models.MunicipalityCases;
 import com.ucb.Nexo_Backend.models.Prediction;
 
 import java.io.FileInputStream;
@@ -12,7 +14,7 @@ import java.util.Date;
 
 public class PredictionUtil {
 
-    public static List<Prediction> predictionAR1(List<CountryCases> listcases,Integer cant){
+    public static List<Prediction> predictionCAR1(List<CountryCases> listcases,Integer cant,Integer filter){
         List<Prediction> listprediction = new ArrayList<>();
         String countryId="";
 
@@ -26,7 +28,19 @@ public class PredictionUtil {
             CountryCases countryCases = new CountryCases();
             countryCases= listcases.get(i);
             Prediction predictions= new Prediction();
-            predictions.setCases(countryCases.getNewCases());
+            if (filter==0){
+                predictions.setCases(countryCases.getNewCases());
+            }
+            else{
+                if (filter==1){
+                    predictions.setCases(countryCases.getDeaths());
+                }
+                else{
+                    if (filter==2){
+                        predictions.setCases(countryCases.getRecovered());
+                    }
+                }
+            }
             predictions.setDate(countryCases.getDate());
             predictions.setStatus(0);
             countryId=countryCases.getCountryId();
@@ -35,8 +49,19 @@ public class PredictionUtil {
             predictions.setId(countryCases.getCountryId());
             listprediction.add(predictions);
             if(countryCases.getNewCases()>0){
-
-                prediction[countcases][0]= countryCases.getNewCases();
+                if (filter==0){
+                    prediction[countcases][0]=countryCases.getNewCases();
+                }
+                else{
+                    if (filter==1){
+                        prediction[countcases][0]= countryCases.getDeaths();
+                    }
+                    else{
+                        if (filter==2){
+                            prediction[countcases][0]= countryCases.getRecovered();
+                        }
+                    }
+                }
                 countcases=countcases+1;
             }
         }
@@ -53,6 +78,138 @@ public class PredictionUtil {
             listprediction.add(predictions);
         }
         return listprediction;
+    }
+
+    public static List<Prediction> predictionDAR1(List<DepartmentCases> listcases, Integer cant, Integer filter){
+        List<Prediction> listprediction1 = new ArrayList<>();
+        String countryId="";
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        int con= listcases.size();
+        double [][] vector=new double[con][1];
+        double [][] prediction=new double[con][1];
+        int countcases=0;
+        for (int i=0;i<con;i++){
+            DepartmentCases countryCases = new DepartmentCases();
+            countryCases= listcases.get(i);
+            Prediction predictions= new Prediction();
+            if (filter==0){
+                predictions.setCases(countryCases.getNewCases());
+            }
+            else{
+                if (filter==1){
+                    predictions.setCases(countryCases.getDeaths());
+                }
+                else{
+                    if (filter==2){
+                        predictions.setCases(countryCases.getRecovered());
+                    }
+                }
+            }
+            predictions.setDate(countryCases.getDate());
+            predictions.setStatus(0);
+            countryId=countryCases.getDepartmentId();
+
+            c.setTime(countryCases.getDate());
+            predictions.setId(countryCases.getDepartmentId());
+            listprediction1.add(predictions);
+            if(countryCases.getNewCases()>0){
+                if (filter==0){
+                    prediction[countcases][0]=countryCases.getNewCases();
+                }
+                else{
+                    if (filter==1){
+                        prediction[countcases][0]= countryCases.getDeaths();
+                    }
+                    else{
+                        if (filter==2){
+                            prediction[countcases][0]= countryCases.getRecovered();
+                        }
+                    }
+                }
+                countcases=countcases+1;
+            }
+        }
+        int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
+
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            Prediction predictions= new Prediction();
+            predictions.setCases(prediccionsucesfull[i]);
+            c.add(Calendar.DATE, 1);
+            dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction1.add(predictions);
+        }
+        return listprediction1;
+    }
+
+    public static List<Prediction> predictionMAR1(List<MunicipalityCases> listcases, Integer cant, Integer filter){
+        List<Prediction> listprediction2 = new ArrayList<>();
+        String countryId="";
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        int con= listcases.size();
+        double [][] vector=new double[con][1];
+        double [][] prediction=new double[con][1];
+        int countcases=0;
+        for (int i=0;i<con;i++){
+            MunicipalityCases countryCases = new MunicipalityCases();
+            countryCases= listcases.get(i);
+            Prediction predictions= new Prediction();
+            if (filter==0){
+                predictions.setCases(countryCases.getNewCases());
+            }
+            else{
+                if (filter==1){
+                    predictions.setCases(countryCases.getDeaths());
+                }
+                else{
+                    if (filter==2){
+                        predictions.setCases(countryCases.getRecovered());
+                    }
+                }
+            }
+            predictions.setDate(countryCases.getDate());
+            predictions.setStatus(0);
+            countryId=countryCases.getRegionId();
+
+            c.setTime(countryCases.getDate());
+            predictions.setId(countryCases.getRegionId());
+            listprediction2.add(predictions);
+            if(countryCases.getNewCases()>0){
+                if (filter==0){
+                    prediction[countcases][0]=countryCases.getNewCases();
+                }
+                else{
+                    if (filter==1){
+                        prediction[countcases][0]= countryCases.getDeaths();
+                    }
+                    else{
+                        if (filter==2){
+                            prediction[countcases][0]= countryCases.getRecovered();
+                        }
+                    }
+                }
+                countcases=countcases+1;
+            }
+        }
+        int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
+
+        for (int i=0;i<prediccionsucesfull.length;i++){
+            Prediction predictions= new Prediction();
+            predictions.setCases(prediccionsucesfull[i]);
+            c.add(Calendar.DATE, 1);
+            dt = c.getTime();
+            predictions.setDate(dt);
+            predictions.setStatus(1);
+            predictions.setId(countryId);
+            listprediction2.add(predictions);
+        }
+        return listprediction2;
     }
 
     private static int[] generarPrediccion(int cantidad, int con, double[][] vector1) {
@@ -129,6 +286,6 @@ public class PredictionUtil {
         return datosXY;
     }
 
-
+//
 
 }
