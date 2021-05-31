@@ -29,7 +29,7 @@ public class PredictionController {
         return service.getByDateDepartmentId(id,cant,filter);
     }
 
-    @GetMapping(value = "/prediction/ar1/municipality/{id}")
+    @GetMapping(value = "/prediction/ar1/municipio/{id}")
     public List<Prediction> getMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
         return service.getByDateMunicipalityId(id,cant,filter);
     }
@@ -42,7 +42,7 @@ public class PredictionController {
     public List<PredictionRequest> getMatrixDepartment(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
         return service.getLinealPredictionByDateDepartmentId(id,cant,filter);
     }
-    @GetMapping(value = "/prediction/mtx/municipality/{id}")
+    @GetMapping(value = "/prediction/mtx/municipio/{id}")
     public List<PredictionRequest> getMatrixMunicipality(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
         return service.getLinealPredictionByDateMunicipalityId(id,cant,filter);
     }
