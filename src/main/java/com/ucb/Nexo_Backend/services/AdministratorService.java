@@ -3,7 +3,6 @@ package com.ucb.Nexo_Backend.services;
 
 import com.ucb.Nexo_Backend.dto.AdministratorRequest;
 import com.ucb.Nexo_Backend.models.Administrator;
-import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.repository.AdministratorRepository;
 import com.ucb.Nexo_Backend.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -215,8 +215,13 @@ public class PredictionUtil {
         Calendar c = Calendar.getInstance();
         int indice = 0;
         for (CountryCases countryCases: listcases){
+
             datosx[indice][0] = 1;
             datosx[indice][1] = indice + 1;
+
+
+            c.setTime(countryCases.getDate());
+
             if (filter==0){
                 datosy[indice][0] = countryCases.getNewCases();
             }
@@ -225,8 +230,15 @@ public class PredictionUtil {
             } else if (filter == 2) {
                 datosy[indice][0] = countryCases.getRecovered();
             }
-            indice = indice + 1;
+
+            PredictionRequest predictions= new PredictionRequest();
             c.setTime(countryCases.getDate());
+            predictions.setCases((long) datosy[indice][0]);
+            predictions.setId(countryCases.getCountryId());
+            predictions.setDate(countryCases.getDate());
+            predictions.setStatus(0);
+            listprediction.add(predictions);
+            indice = indice + 1;
         }
         double[][] betas = generarBetas(datosx,datosy);
         long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
@@ -263,8 +275,14 @@ public class PredictionUtil {
             } else if (filter == 2) {
                 datosy[indice][0] = departmentCases.getRecovered();
             }
-            indice = indice + 1;
             c.setTime(departmentCases.getDate());
+            PredictionRequest predictions= new PredictionRequest();
+            predictions.setCases((long) datosy[indice][0]);
+            predictions.setId(departmentCases.getDepartmentId());
+            predictions.setDate(departmentCases.getDate());
+            predictions.setStatus(0);
+            listprediction.add(predictions);
+            indice = indice + 1;
         }
         double[][] betas = generarBetas(datosx,datosy);
         long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
@@ -302,8 +320,14 @@ public class PredictionUtil {
             } else if (filter == 2) {
                 datosy[indice][0] = municipalityCases.getRecovered();
             }
-            indice = indice + 1;
             c.setTime(municipalityCases.getDate());
+            PredictionRequest predictions= new PredictionRequest();
+            predictions.setCases((long) datosy[indice][0]);
+            predictions.setId(municipalityCases.getRegionId());
+            predictions.setDate(municipalityCases.getDate());
+            predictions.setStatus(0);
+            listprediction.add(predictions);
+            indice = indice + 1;
         }
         double[][] betas = generarBetas(datosx,datosy);
         long[][] prediccionsucesfull = funcionLineal(betas,cantidad);
@@ -401,7 +425,7 @@ public class PredictionUtil {
                 if (i == 0)
                     y = betas[j][0];
                 else{
-                    y = y + betas[j][0];
+                    y = y + i*betas[j][0];
                     }
                 }
             datosXY[i][0] = i;

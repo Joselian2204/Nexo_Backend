@@ -158,6 +158,9 @@ drop trigger if exists tg_insert_h_administrator;
 drop trigger if exists tg_update_h_administrator;
 drop trigger if exists tg_update_h_hospital;
 drop trigger if exists tg_insert_h_hospital;
+drop trigger if exists tg_update_h_pharmacy;
+drop trigger if exists tg_insert_h_pharmacy;
+
 DELIMITER |
 CREATE TRIGGER tg_insert_h_administrator
     AFTER INSERT ON administrator

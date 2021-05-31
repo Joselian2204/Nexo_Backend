@@ -21,10 +21,7 @@ public class AdmiController {
     }
 
     @RequestMapping(path="/administrator/login",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public AdministratorRequest SignIn(@RequestBody AdministratorRequest admiRequest, HttpServletRequest request) {
-
-        TransactionUtil transactionUtil = new TransactionUtil();
-        Transaction transaction = transactionUtil.createTransaction(request);
+    public AdministratorRequest SignIn(@RequestBody AdministratorRequest admiRequest) {
 
         return service.SignIn(admiRequest);
     }
