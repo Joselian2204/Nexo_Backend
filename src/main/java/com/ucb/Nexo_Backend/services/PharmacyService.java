@@ -7,24 +7,20 @@ import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.repository.DepartmentRepository;
 
 import com.ucb.Nexo_Backend.repository.PharmacyRepository;
-import com.ucb.Nexo_Backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PharmacyService {
     private PharmacyRepository pharmacyRepository;
     private DepartmentRepository departmentRepository;
-    private TransactionRepository transactionRepository;
 
     @Autowired
-    public PharmacyService(PharmacyRepository pharmacyRepository, TransactionRepository transactionRepository, DepartmentRepository departmentRepository) {
+    public PharmacyService(PharmacyRepository pharmacyRepository, DepartmentRepository departmentRepository) {
         this.pharmacyRepository = pharmacyRepository;
-        this.transactionRepository = transactionRepository;
         this.departmentRepository=departmentRepository;
     }
     public PharmacyRequest create(PharmacyRequest pharmacyRequest, Transaction transaction){

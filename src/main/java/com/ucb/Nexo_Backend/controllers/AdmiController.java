@@ -26,7 +26,7 @@ public class AdmiController {
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
 
-        return service.SignIn(admiRequest,transaction);
+        return service.SignIn(admiRequest);
     }
 
 }

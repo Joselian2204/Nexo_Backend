@@ -4,7 +4,6 @@ import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
 import com.ucb.Nexo_Backend.models.MunicipalityCases;
-import com.ucb.Nexo_Backend.models.Prediction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +12,9 @@ import java.util.Date;
 
 public class PredictionUtil {
 
-    public static List<Prediction> predictionCAR1(List<CountryCases> listcases,Integer cant,Integer filter){
-        List<Prediction> listprediction = new ArrayList<>();
+    public static List<PredictionRequest> predictionCAR1(List<CountryCases> listcases,Integer cant,Integer filter){
+        List<PredictionRequest> listprediction = new ArrayList<>();
         String countryId="";
-
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
         int con= listcases.size();
@@ -26,7 +24,7 @@ public class PredictionUtil {
         for (int i=0;i<con;i++){
             CountryCases countryCases = new CountryCases();
             countryCases= listcases.get(i);
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             if (filter==0){
                 predictions.setCases(countryCases.getNewCases());
             }
@@ -67,7 +65,7 @@ public class PredictionUtil {
         int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
 
         for (int i=0;i<prediccionsucesfull.length;i++){
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i]);
             c.add(Calendar.DATE, 1);
             dt = c.getTime();
@@ -78,8 +76,8 @@ public class PredictionUtil {
         }
         return listprediction;
     }
-    public static List<Prediction> predictionDAR1(List<DepartmentCases> listcases, Integer cant, Integer filter){
-        List<Prediction> listprediction1 = new ArrayList<>();
+    public static List<PredictionRequest> predictionDAR1(List<DepartmentCases> listcases, Integer cant, Integer filter){
+        List<PredictionRequest> listprediction1 = new ArrayList<>();
         String countryId="";
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
@@ -89,7 +87,7 @@ public class PredictionUtil {
         for (int i=0;i<con;i++){
             DepartmentCases countryCases = new DepartmentCases();
             countryCases= listcases.get(i);
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             if (filter==0){
                 predictions.setCases(countryCases.getNewCases());
             }
@@ -130,7 +128,7 @@ public class PredictionUtil {
         int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
 
         for (int i=0;i<prediccionsucesfull.length;i++){
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i]);
             c.add(Calendar.DATE, 1);
             dt = c.getTime();
@@ -141,8 +139,8 @@ public class PredictionUtil {
         }
         return listprediction1;
     }
-    public static List<Prediction> predictionMAR1(List<MunicipalityCases> listcases, Integer cant, Integer filter){
-        List<Prediction> listprediction2 = new ArrayList<>();
+    public static List<PredictionRequest> predictionMAR1(List<MunicipalityCases> listcases, Integer cant, Integer filter){
+        List<PredictionRequest> listprediction2 = new ArrayList<>();
         String countryId="";
 
         Date dt = new Date();
@@ -154,7 +152,7 @@ public class PredictionUtil {
         for (int i=0;i<con;i++){
             MunicipalityCases countryCases = new MunicipalityCases();
             countryCases= listcases.get(i);
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             if (filter==0){
                 predictions.setCases(countryCases.getNewCases());
             }
@@ -195,7 +193,7 @@ public class PredictionUtil {
         int [] prediccionsucesfull = generarPrediccion(cant,countcases-1,prediction);
 
         for (int i=0;i<prediccionsucesfull.length;i++){
-            Prediction predictions= new Prediction();
+            PredictionRequest predictions= new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i]);
             c.add(Calendar.DATE, 1);
             dt = c.getTime();

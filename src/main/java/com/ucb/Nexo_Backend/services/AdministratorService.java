@@ -30,7 +30,7 @@ public class AdministratorService {
         }
     }
 
-    public AdministratorRequest SignIn(AdministratorRequest administratorRequest, Transaction transaction){
+    public AdministratorRequest SignIn(AdministratorRequest administratorRequest){
 
         Administrator admiInfo=admiRepo.findByEmail(administratorRequest.getEmail());
         if(admiInfo!=null){
