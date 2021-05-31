@@ -61,11 +61,11 @@ Accept: application/json
 GET http://localhost:8080/prediction/mtx/municipality/tj0?cant=5&filter=1
 Accept: application/json
 ###
-GET http://localhost:8080/country/average?id=BOL
+GET http://localhost:8080/country/average/BOL
 Accept: application/json
 
 ###
-GET http://localhost:8080/department/average?id=BOL1941
+GET http://localhost:8080/department/average/BOL1941
 Accept: application/json
 
 ###

@@ -44,8 +44,8 @@ public class MunicipalityController {
         return casesService.getByDateId(id,date1,date2);
     }
 
-    @GetMapping(value = "/municipios/average")
-    public MunicipalityCases getCases(@RequestParam String id){
+    @GetMapping(value = "/municipio/average/{id}")
+    public MunicipalityCases getCases(@PathVariable String id){
         System.out.println("Estoy aca");
         return casesService.getAverage(id);
     }

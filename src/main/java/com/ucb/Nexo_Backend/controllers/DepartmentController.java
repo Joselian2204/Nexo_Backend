@@ -43,9 +43,8 @@ public class DepartmentController {
 
         return casesService.getByDateId(id,date1,date2);
     }
-    @GetMapping(value = "/department/average")
-    public DepartmentCases getCases(@RequestParam String id){
-        System.out.println("Estoy aca");
+    @GetMapping(value = "/department/average/{id}")
+    public DepartmentCases getCases(@PathVariable String id){
         return casesService.getAverage(id);
     }
 }

@@ -43,8 +43,8 @@ public class CountryController {
     public List<CountryCases> getDates(@RequestParam String id,@RequestParam String date1, @RequestParam String date2) throws ParseException {
         return casesService.getByDateId(id,date1,date2);
     }
-    @GetMapping(value = "/country/average")
-    public CountryCases getCases(@RequestParam String id){
+    @GetMapping(value = "/country/average/{id}")
+    public CountryCases getCases(@PathVariable String id){
         System.out.println("Estoy aca");
         return casesService.getAverage(id);
     }
