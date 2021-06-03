@@ -21,20 +21,35 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
   "lat": 32.85,
   "lng": 68.416
 }
-
 ###
 POST http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjQyOTEzNCwiZXhwIjoxNjIyNTE1NTM0fQ.fwNxNbBeOXYGgLrY4dXkJNzPfmdtjczL0Ys0qfs4b95EbEagvxPqaNLfCdZbWcHy1dUDzVjL2fMPHlL0MDbKeA
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc0Mjc4NCwiZXhwIjoxNjIyODI5MTg0fQ.T75pxHsiHRt1j8j7xc9azArduZTqblBkdlfGH2tNOfCnVwIJdZz32lqQDDzY2PaVb_l5RHsjBulVxBs7WQIX_w
 
 {
   "idDepartment": "BOL1293",
-  "name": "Cruz Roja",
+  "name": "Obrero",
   "location": "Miraflores",
-  "phoneNumber":"7894561",
+  "phoneNumber":"852369",
   "lat": 32.85,
   "lng": 68.416
+}
+
+###
+PUT http://localhost:8080/hospital
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc0Mjc4NCwiZXhwIjoxNjIyODI5MTg0fQ.T75pxHsiHRt1j8j7xc9azArduZTqblBkdlfGH2tNOfCnVwIJdZz32lqQDDzY2PaVb_l5RHsjBulVxBs7WQIX_w
+
+{
+  "idHospital": 1,
+  "idDepartment": "BOL1293",
+  "name": "Hospital Obrero (Caja Nacional de Salud)",
+  "location": "Av. Circunvalacion",
+  "phoneNumber":"7894561",
+  "lat": -14.82547,
+  "lng": -64.89474
 }
 
 ###

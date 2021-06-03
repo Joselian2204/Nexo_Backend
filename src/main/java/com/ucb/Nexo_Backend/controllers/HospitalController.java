@@ -32,6 +32,17 @@ public class HospitalController {
         hospitalRequest=service.create(hospitalRequest,transaction);
         return hospitalRequest;
     }
+    @RequestMapping(path = "/hospital",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HospitalRequest update(@RequestBody HospitalRequest hospitalRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        AdministratorUtil administratorUtil=new AdministratorUtil();
+        Integer idAdmi=administratorUtil.getIdAdministrator();
+        System.out.println(idAdmi);
+        Transaction transaction = transactionUtil.createTransaction(request);
+        transaction.setTxIdAdmi(idAdmi);
+        hospitalRequest=service.update(hospitalRequest,transaction);
+        return hospitalRequest;
+    }
     @GetMapping(value = "/hospital")
     public List<HospitalRequest> getHospitals(){
         return service.getAll();

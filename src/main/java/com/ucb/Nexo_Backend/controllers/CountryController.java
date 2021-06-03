@@ -6,8 +6,11 @@ import com.ucb.Nexo_Backend.services.CountryCasesService;
 import com.ucb.Nexo_Backend.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -48,5 +51,24 @@ public class CountryController {
         System.out.println("Estoy aca");
         return casesService.getAverage(id);
     }
+    /* @PostMapping(path = "/admin/{id}")
+    public HttpStatus uploadFile(@RequestParam("file") MultipartFile file,
+                                 HttpServletRequest request) {
+
+        if (CSVHelper.hasCSVFormat(file)) {
+            try {
+                Transaction transaction = TransactionUtil.createTransaction(request);
+                transactionBl.createTransaction(transaction);
+                covidDataCountryBl.saveData(file,id, transaction);
+
+
+                return HttpStatus.OK;
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage());
+                return HttpStatus.EXPECTATION_FAILED;
+            }
+        }
+        return HttpStatus.BAD_REQUEST;
+    }*/
 
 }

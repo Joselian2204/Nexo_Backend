@@ -26,19 +26,24 @@ public class PharmacyService {
     public PharmacyRequest create(PharmacyRequest pharmacyRequest, Transaction transaction){
         Pharmacy pharmacy = new Pharmacy();
         pharmacy = setPharmacy(pharmacyRequest,pharmacy);
-        pharmacy.setTxDate(transaction.getTxDate());
-        pharmacy.setTxIdAdministrator(transaction.getTxIdAdmi());
-        pharmacy.setTxHost(transaction.getTxHost());
-        pharmacy.setTxUpdate(transaction.getTxUpdate());
-        System.out.println("Create Service");
-        System.out.println(pharmacy);
+        setTransaction(pharmacy,transaction);
+        pharmacy = pharmacyRepository.save(pharmacy);
+        pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
+
+        return pharmacyRequest;
+    }
+    public PharmacyRequest update(PharmacyRequest pharmacyRequest, Transaction transaction){
+        Pharmacy pharmacy = new Pharmacy();
+        pharmacy = setPharmacy(pharmacyRequest,pharmacy);
+        setTransaction(pharmacy,transaction);
         pharmacy = pharmacyRepository.save(pharmacy);
         pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
 
         return pharmacyRequest;
     }
     public List<PharmacyRequest> getAll(){
-        List<Pharmacy> listPharmacy= this.pharmacyRepository.findAll();
+        int status = 1;
+        List<Pharmacy> listPharmacy= this.pharmacyRepository.findByStatus(status);
         List<PharmacyRequest> listPharmacyRequest= new ArrayList<>();
         List<Department> departments = departmentRepository.findAll();
         for (Pharmacy pharmacy: listPharmacy){
@@ -69,6 +74,13 @@ public class PharmacyService {
         pharmacyRequest.setIdPharmacy(pharmacy.getIdPharmacy());
         return pharmacyRequest;
     }
+    private void setTransaction(Pharmacy pharmacy, Transaction transaction){
+        pharmacy.setTxDate(transaction.getTxDate());
+        pharmacy.setTxIdAdministrator(transaction.getTxIdAdmi());
+        pharmacy.setTxHost(transaction.getTxHost());
+        pharmacy.setTxUpdate(transaction.getTxUpdate());
+
+    }
     private String searchDepartment(List<Department> departments, String id){
         String nameDepartment="";
         for(Department department: departments){
@@ -77,5 +89,6 @@ public class PharmacyService {
         }
         return nameDepartment;
     }
+
 
 }

@@ -1,14 +1,11 @@
 package com.ucb.Nexo_Backend.controllers;
 
 import com.ucb.Nexo_Backend.dto.AdministratorRequest;
-import com.ucb.Nexo_Backend.models.Transaction;
+
 import com.ucb.Nexo_Backend.services.AdministratorService;
-import com.ucb.Nexo_Backend.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "*")
 @RestController

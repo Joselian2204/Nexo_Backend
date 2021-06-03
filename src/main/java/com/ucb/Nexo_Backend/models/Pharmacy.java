@@ -25,6 +25,7 @@ public class Pharmacy {
     private String txHost;
     @Column(name = "tx_update")
     private Date txUpdate;
+    private int status;
 
     public Pharmacy() {
 
@@ -118,6 +119,14 @@ public class Pharmacy {
         this.txUpdate = txUpdate;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Pharmacy{" +
@@ -132,6 +141,7 @@ public class Pharmacy {
                 ", txIdAdministrator=" + txIdAdministrator +
                 ", txHost='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
+                ", status=" + status +
                 '}';
     }
 }

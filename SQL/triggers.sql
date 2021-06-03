@@ -186,7 +186,7 @@ CREATE TRIGGER tg_insert_h_hospital
     AFTER INSERT ON hospital
     FOR EACH ROW
 BEGIN
-    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
+    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`status`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.status,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
 END;
 |
 DELIMITER ;
@@ -196,7 +196,7 @@ CREATE TRIGGER tg_update_h_hospital
     AFTER UPDATE ON hospital
     FOR EACH ROW
 BEGIN
-    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
+    INSERT INTO `h_hospital`(`id_h_hospital`,`id_hospital`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`status`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_hospital,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.status,NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
 END;
 |
 DELIMITER ;
@@ -205,7 +205,7 @@ CREATE TRIGGER tg_insert_h_pharmacy
     AFTER INSERT ON pharmacy
     FOR EACH ROW
 BEGIN
-    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
+    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`status`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.status,NOW(),NEW.tx_id_administrator,NEW.tx_host,NOW());
 END;
 |
 DELIMITER ;
@@ -215,7 +215,7 @@ CREATE TRIGGER tg_update_h_pharmacy
     AFTER UPDATE ON pharmacy
     FOR EACH ROW
 BEGIN
-    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
+    INSERT INTO `h_pharmacy`(`id_h_pharmacy`,`id_pharmacy`,`id_department`,`name`,`location`,`phone_number`,`lat`,`lng`,`status`,`tx_date`,`tx_id_administrator`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_pharmacy,NEW.id_department,NEW.name,NEW.location,NEW.phone_number,NEW.lat,NEW.lng,NEW.status, NEW.tx_date,NEW.tx_id_administrator,NEW.tx_host,NOW());
 END;
 |
 DELIMITER ;

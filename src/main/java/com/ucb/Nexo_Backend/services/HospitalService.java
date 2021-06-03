@@ -3,6 +3,7 @@ package com.ucb.Nexo_Backend.services;
 import com.ucb.Nexo_Backend.dto.HospitalRequest;
 import com.ucb.Nexo_Backend.models.Department;
 import com.ucb.Nexo_Backend.models.Hospital;
+import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.repository.DepartmentRepository;
 import com.ucb.Nexo_Backend.repository.HospitalRepository;
@@ -27,16 +28,23 @@ public class HospitalService {
     public HospitalRequest create(HospitalRequest hospitalRequest, Transaction transaction){
         Hospital hospital = new Hospital();
         hospital = setHospital(hospitalRequest,hospital);
-        hospital.setTxDate(transaction.getTxDate());
-        hospital.setTxIdAdministrator(transaction.getTxIdAdmi());
-        hospital.setTxHost(transaction.getTxHost());
-        hospital.setTxUpdate(transaction.getTxUpdate());
+        setTransaction(hospital,transaction);
+        hospitalRepository.save(hospital);
+        hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
+        return hospitalRequest;
+    }
+    public HospitalRequest update(HospitalRequest hospitalRequest, Transaction transaction){
+        Hospital hospital = new Hospital();
+        hospital = setHospital(hospitalRequest,hospital);
+        hospital.setIdHospital(hospitalRequest.getIdHospital());
+        setTransaction(hospital,transaction);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;
     }
     public List<HospitalRequest> getAll(){
-        List<Hospital> listHospital= this.hospitalRepository.findAll();
+        int status = 1;
+        List<Hospital> listHospital= this.hospitalRepository.findByStatus(status);
         List<HospitalRequest> listHospitalRequest= new ArrayList<>();
         List<Department> departments = departmentRepository.findAll();
         for (Hospital hospital: listHospital){
@@ -73,5 +81,11 @@ public class HospitalService {
                 nameDepartment = department.getName();
         }
         return nameDepartment;
+    }
+    private void setTransaction(Hospital hospital, Transaction transaction){
+        hospital.setTxDate(transaction.getTxDate());
+        hospital.setTxIdAdministrator(transaction.getTxIdAdmi());
+        hospital.setTxHost(transaction.getTxHost());
+        hospital.setTxUpdate(transaction.getTxUpdate());
     }
 }

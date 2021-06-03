@@ -29,6 +29,7 @@ public class Hospital {
     private String txHost;
     @Column(name = "tx_update")
     private Date txUpdate;
+    private int status;
 
     public Hospital() {
     }
@@ -121,6 +122,14 @@ public class Hospital {
         this.lat = lat;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Hospital{" +
@@ -130,11 +139,12 @@ public class Hospital {
                 ", location='" + location + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", lat=" + lat +
-                ", lng='" + lng + '\'' +
+                ", lng=" + lng +
                 ", txDate=" + txDate +
                 ", txIdAdministrator=" + txIdAdministrator +
                 ", txHost='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
+                ", status=" + status +
                 '}';
     }
 }
