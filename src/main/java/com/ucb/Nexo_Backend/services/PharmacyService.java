@@ -26,6 +26,8 @@ public class PharmacyService {
     public PharmacyRequest create(PharmacyRequest pharmacyRequest, Transaction transaction){
         Pharmacy pharmacy = new Pharmacy();
         pharmacy = setPharmacy(pharmacyRequest,pharmacy);
+        int status = 1;
+        pharmacy.setStatus(status);
         setTransaction(pharmacy,transaction);
         pharmacy = pharmacyRepository.save(pharmacy);
         pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
@@ -36,6 +38,7 @@ public class PharmacyService {
         Pharmacy pharmacy = new Pharmacy();
         pharmacy = setPharmacy(pharmacyRequest,pharmacy);
         setTransaction(pharmacy,transaction);
+        pharmacy.setIdPharmacy(pharmacyRequest.getIdPharmacy());
         pharmacy = pharmacyRepository.save(pharmacy);
         pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
 

@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/hospital
+POST http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjQyOTEzNCwiZXhwIjoxNjIyNTE1NTM0fQ.fwNxNbBeOXYGgLrY4dXkJNzPfmdtjczL0Ys0qfs4b95EbEagvxPqaNLfCdZbWcHy1dUDzVjL2fMPHlL0MDbKeA
@@ -40,16 +40,31 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
 PUT http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc0Mjc4NCwiZXhwIjoxNjIyODI5MTg0fQ.T75pxHsiHRt1j8j7xc9azArduZTqblBkdlfGH2tNOfCnVwIJdZz32lqQDDzY2PaVb_l5RHsjBulVxBs7WQIX_w
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MTk0NiwiZXhwIjoxNjIyODM4MzQ2fQ.pfP_DmMBhT34zqoHmgUoPPyfbp1qDEVr5mCVn_7EmnOqL_aBW1uG-ARW1Hkh56jHgOWasrJwTmFVKP_sW-8OnQ
 
 {
   "idHospital": 1,
   "idDepartment": "BOL1293",
-  "name": "Hospital Obrero (Caja Nacional de Salud)",
-  "location": "Av. Circunvalacion",
+  "name": "Insumos Trinidad",
+  "location": "C. Serafin Rivero",
   "phoneNumber":"7894561",
-  "lat": -14.82547,
-  "lng": -64.89474
+  "lat": -14.82628,
+  "lng": -64.89580
+}
+###
+PUT http://localhost:8080/pharmacy
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MTk0NiwiZXhwIjoxNjIyODM4MzQ2fQ.pfP_DmMBhT34zqoHmgUoPPyfbp1qDEVr5mCVn_7EmnOqL_aBW1uG-ARW1Hkh56jHgOWasrJwTmFVKP_sW-8OnQ
+
+{
+  "idPharmacy": 1,
+  "idDepartment": "BOL1293",
+  "name": "Insumos Trinidad",
+  "location": "C. Serafin Rivero",
+  "phoneNumber":"7894561",
+  "lat": -14.82628,
+  "lng": -64.89580
 }
 
 ###

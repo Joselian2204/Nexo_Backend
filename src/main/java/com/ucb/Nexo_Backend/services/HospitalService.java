@@ -27,7 +27,9 @@ public class HospitalService {
 
     public HospitalRequest create(HospitalRequest hospitalRequest, Transaction transaction){
         Hospital hospital = new Hospital();
+        int status = 1;
         hospital = setHospital(hospitalRequest,hospital);
+        hospital.setStatus(status);
         setTransaction(hospital,transaction);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
