@@ -1,6 +1,4 @@
-
 package com.ucb.Nexo_Backend.util;
-
 
 import javax.crypto.SecretKey;
 
@@ -12,7 +10,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

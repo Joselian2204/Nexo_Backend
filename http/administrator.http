@@ -8,18 +8,18 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/pharmacy
+POST http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjQyOTEzNCwiZXhwIjoxNjIyNTE1NTM0fQ.fwNxNbBeOXYGgLrY4dXkJNzPfmdtjczL0Ys0qfs4b95EbEagvxPqaNLfCdZbWcHy1dUDzVjL2fMPHlL0MDbKeA
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1NjIzMywiZXhwIjoxNjIyODQyNjMzfQ.1EkjHX35P8BVkavnbOGQ8kLWD1P6z7ifctS8uPK8P978PS7p5LtE5fpz2lhnhvdBgUO_lnmMYNkEA5LqeW3FsA
 
 {
   "idDepartment": "BOL1293",
-  "name": "Obrero",
-  "location": "Miraflores",
-  "phoneNumber":"852369",
-  "lat": 32.85,
-  "lng": 68.416
+  "name": "Insumos Trinidad",
+  "location": "C. Serafin Rivero",
+  "phoneNumber":"7894561",
+  "lat": -14.82628,
+  "lng": -64.89580
 }
 ###
 POST http://localhost:8080/pharmacy
@@ -66,6 +66,13 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
   "lat": -14.82628,
   "lng": -64.89580
 }
+
+###
+DELETE http://localhost:8080/hospital/85
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MzI1MCwiZXhwIjoxNjIyODM5NjUwfQ.Z1ctBp9HqkCabfNnNKyzBXW7hrIkMJnghsN4ZYe_-USH6MibLueuyeIMI7ftO8UAjbK-GsFnJSNoAz5OlP737A
+
 
 ###
 GET http://localhost:8080/hospital

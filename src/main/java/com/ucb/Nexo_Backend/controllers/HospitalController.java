@@ -14,6 +14,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
+//@RequestMapping(value = "/hospital")
 public class HospitalController {
     private HospitalService service;
     @Autowired
@@ -21,7 +22,7 @@ public class HospitalController {
     public HospitalController(HospitalService service) {
         this.service = service;
     }
-    @RequestMapping(path = "/hospital",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/hospital",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public HospitalRequest create(@RequestBody HospitalRequest hospitalRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
@@ -32,7 +33,7 @@ public class HospitalController {
         hospitalRequest=service.create(hospitalRequest,transaction);
         return hospitalRequest;
     }
-    @RequestMapping(path = "/hospital",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/hospital",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public HospitalRequest update(@RequestBody HospitalRequest hospitalRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
@@ -42,6 +43,11 @@ public class HospitalController {
         transaction.setTxIdAdmi(idAdmi);
         hospitalRequest=service.update(hospitalRequest,transaction);
         return hospitalRequest;
+    }
+    @RequestMapping(value = "/hospital/{idHospital}",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String update(@PathVariable Integer idHospital, HttpServletRequest request) {
+        service.delete(idHospital);
+        return "Eliminado";
     }
     @GetMapping(value = "/hospital")
     public List<HospitalRequest> getHospitals(){

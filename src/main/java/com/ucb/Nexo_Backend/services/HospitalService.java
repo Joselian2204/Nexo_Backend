@@ -44,6 +44,10 @@ public class HospitalService {
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;
     }
+    public void delete(int idHospital){
+        int status = 0;
+        hospitalRepository.updateStatus(status,idHospital);
+    }
     public List<HospitalRequest> getAll(){
         int status = 1;
         List<Hospital> listHospital= this.hospitalRepository.findByStatus(status);
