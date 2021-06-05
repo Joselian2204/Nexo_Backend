@@ -37,16 +37,18 @@ public class HospitalService {
     }
     public HospitalRequest update(HospitalRequest hospitalRequest, Transaction transaction){
         Hospital hospital = new Hospital();
+        int status = 1 ;
         hospital = setHospital(hospitalRequest,hospital);
         hospital.setIdHospital(hospitalRequest.getIdHospital());
+        hospital.setStatus(status);
         setTransaction(hospital,transaction);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;
     }
-    public void delete(int idHospital){
+    public void delete(int idHospital, Transaction transaction){
         int status = 0;
-        hospitalRepository.updateStatus(status,idHospital);
+        hospitalRepository.updateStatus(status,idHospital,transaction.getTxHost(),transaction.getTxIdAdmi(),transaction.getTxUpdate());
     }
     public List<HospitalRequest> getAll(){
         int status = 1;

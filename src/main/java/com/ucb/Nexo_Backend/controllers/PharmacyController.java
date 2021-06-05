@@ -50,4 +50,14 @@ public class PharmacyController {
         pharmacyRequest=service.update(pharmacyRequest,transaction);
         return pharmacyRequest;
     }
+    @RequestMapping(path = "/{idPharmacy}",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@PathVariable Integer idPharmacy, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        AdministratorUtil administratorUtil=new AdministratorUtil();
+        Integer idAdmi=administratorUtil.getIdAdministrator();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        transaction.setTxIdAdmi(idAdmi);
+        service.delete(idPharmacy,transaction);
+        return "Eliminado";
+    }
 }

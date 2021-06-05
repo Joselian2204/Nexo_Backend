@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-//@RequestMapping(value = "/hospital")
+@RequestMapping(value = "/hospital")
 public class HospitalController {
     private HospitalService service;
     @Autowired
@@ -22,7 +22,7 @@ public class HospitalController {
     public HospitalController(HospitalService service) {
         this.service = service;
     }
-    @RequestMapping(value = "/hospital",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public HospitalRequest create(@RequestBody HospitalRequest hospitalRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
@@ -33,7 +33,7 @@ public class HospitalController {
         hospitalRequest=service.create(hospitalRequest,transaction);
         return hospitalRequest;
     }
-    @RequestMapping(value = "/hospital",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public HospitalRequest update(@RequestBody HospitalRequest hospitalRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         AdministratorUtil administratorUtil=new AdministratorUtil();
@@ -44,12 +44,17 @@ public class HospitalController {
         hospitalRequest=service.update(hospitalRequest,transaction);
         return hospitalRequest;
     }
-    @RequestMapping(value = "/hospital/{idHospital}",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String update(@PathVariable Integer idHospital, HttpServletRequest request) {
-        service.delete(idHospital);
+    @RequestMapping(path = "/{idHospital}",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@PathVariable Integer idHospital, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        AdministratorUtil administratorUtil=new AdministratorUtil();
+        Integer idAdmi=administratorUtil.getIdAdministrator();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        transaction.setTxIdAdmi(idAdmi);
+        service.delete(idHospital,transaction);
         return "Eliminado";
     }
-    @GetMapping(value = "/hospital")
+    @GetMapping()
     public List<HospitalRequest> getHospitals(){
         return service.getAll();
     }

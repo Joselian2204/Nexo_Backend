@@ -218,6 +218,7 @@ create table hospital(
     phone_number varchar(20) not null ,
     lat decimal(10,5) NOT NULL,
     lng decimal(10,5) NOT NULL,
+    status smallint default 1,
     tx_date datetime NOT NULL,
     tx_id_administrator int NOT NULL,
     tx_host varchar(100) NOT NULL,
@@ -234,6 +235,7 @@ create table pharmacy(
                          phone_number varchar(20) not null ,
                          lat decimal(10,5) NOT NULL,
                          lng decimal(10,5) NOT NULL,
+                         status smallint default 1,
                          tx_date datetime NOT NULL,
                          tx_id_administrator int NOT NULL,
                          tx_host varchar(100) NOT NULL,
@@ -262,6 +264,7 @@ create table h_hospital(
                          phone_number varchar(20) not null ,
                          lat decimal(10,5) NOT NULL,
                          lng decimal(10,5) NOT NULL,
+                         status smallint,
                          tx_date datetime NOT NULL,
                          tx_id_administrator int NOT NULL,
                          tx_host varchar(100) NOT NULL,
@@ -276,6 +279,7 @@ create table h_pharmacy(
                          phone_number varchar(20) not null ,
                          lat decimal(10,5) NOT NULL,
                          lng decimal(10,5) NOT NULL,
+                         status smallint,
                          tx_date datetime NOT NULL,
                          tx_id_administrator int NOT NULL,
                          tx_host varchar(100) NOT NULL,
@@ -375,6 +379,8 @@ INSERT INTO hospital(id_department,name,location,phone_number,lat,lng,tx_date,tx
 INSERT INTO hospital(id_department,name,location,phone_number,lat,lng,tx_date,tx_id_administrator,tx_host,tx_update) VALUES ('BOL1941','Hospital Palmarcito','Calle Jos� E. D�az','59171016061',-21.53039,-64.71115,NOW(),1,"192.168.1.18",NOW());
 
 select * from pharmacy;
+select * from hospital;
+select * from h_pharmacy;
 select * from hospital;
 alter table hospital add column status smallint default 1;
 alter table pharmacy add column status smallint default 1;

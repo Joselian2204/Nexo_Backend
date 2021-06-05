@@ -40,35 +40,41 @@ Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6W
 PUT http://localhost:8080/hospital
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MTk0NiwiZXhwIjoxNjIyODM4MzQ2fQ.pfP_DmMBhT34zqoHmgUoPPyfbp1qDEVr5mCVn_7EmnOqL_aBW1uG-ARW1Hkh56jHgOWasrJwTmFVKP_sW-8OnQ
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjg1MzI0OSwiZXhwIjoxNjIyOTM5NjQ5fQ.kTpkcYEEnvBUgZ5mp3Oq8IM-CxlBhazTn5RWJO5L9Rt2tByVXOz-If0YsSUhtNTNwNdJj81UVmZc9Bmi-HW1Ug
 
 {
-  "idHospital": 1,
+  "idHospital": 8,
   "idDepartment": "BOL1293",
-  "name": "Insumos Trinidad",
-  "location": "C. Serafin Rivero",
-  "phoneNumber":"7894561",
-  "lat": -14.82628,
-  "lng": -64.89580
+  "name": "Caja de Salud Cordes",
+  "location": "Calle La Paz. Trinidad",
+  "phoneNumber":"59134620872",
+  "lat": -14.83611,
+  "lng":-64.90830
 }
 ###
 PUT http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MTk0NiwiZXhwIjoxNjIyODM4MzQ2fQ.pfP_DmMBhT34zqoHmgUoPPyfbp1qDEVr5mCVn_7EmnOqL_aBW1uG-ARW1Hkh56jHgOWasrJwTmFVKP_sW-8OnQ
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjgzMzI0NSwiZXhwIjoxNjIyOTE5NjQ1fQ.oSa4M-SbIlYjlCawXnJL_UuwPzDy4Zsa8zkiKQmKBNWZB2O3srZNXw1tz9CIM4iVCBMp-ID0rfsg6YTuxGzLlg
 
 {
-  "idPharmacy": 1,
+  "idPharmacy": 3,
   "idDepartment": "BOL1293",
-  "name": "Insumos Trinidad",
-  "location": "C. Serafin Rivero",
-  "phoneNumber":"7894561",
-  "lat": -14.82628,
-  "lng": -64.89580
+  "name": "Farmacia EL CARMEN",
+  "location": "Trinidad",
+  "phoneNumber":"59134620921",
+  "lat": -14.65983,
+  "lng": -64.80470
 }
 
 ###
-DELETE http://localhost:8080/hospital/85
+DELETE http://localhost:8080/hospital/78
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MzI1MCwiZXhwIjoxNjIyODM5NjUwfQ.Z1ctBp9HqkCabfNnNKyzBXW7hrIkMJnghsN4ZYe_-USH6MibLueuyeIMI7ftO8UAjbK-GsFnJSNoAz5OlP737A
+
+###
+DELETE http://localhost:8080/pharmacy/51
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZEFkbWluIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYyMjc1MzI1MCwiZXhwIjoxNjIyODM5NjUwfQ.Z1ctBp9HqkCabfNnNKyzBXW7hrIkMJnghsN4ZYe_-USH6MibLueuyeIMI7ftO8UAjbK-GsFnJSNoAz5OlP737A
