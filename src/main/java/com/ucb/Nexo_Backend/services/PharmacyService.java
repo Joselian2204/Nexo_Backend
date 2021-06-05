@@ -61,9 +61,8 @@ public class PharmacyService {
         return listPharmacyRequest;
     }
     public void delete(int idPharmacy, Transaction transaction){
-        Pharmacy pharmacy = new Pharmacy();
         int status = 0;
-       // hospitalRepository.updateStatus(status,idHospital);
+        pharmacyRepository.updateStatus(status,idPharmacy,transaction.getTxHost(),transaction.getTxIdAdmi(),transaction.getTxUpdate());
     }
     public Pharmacy setPharmacy(PharmacyRequest pharmacyRequest, Pharmacy pharmacy){
         pharmacy.setIdDepartment(pharmacyRequest.getIdDepartment());
