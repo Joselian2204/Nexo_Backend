@@ -40,6 +40,8 @@ public class HospitalService {
         hospital = setHospital(hospitalRequest,hospital);
         hospital.setIdHospital(hospitalRequest.getIdHospital());
         setTransaction(hospital,transaction);
+        int status = 1;
+        hospital.setStatus(status);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;

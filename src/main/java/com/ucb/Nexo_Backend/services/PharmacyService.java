@@ -40,6 +40,8 @@ public class PharmacyService {
         pharmacy = setPharmacy(pharmacyRequest,pharmacy);
         setTransaction(pharmacy,transaction);
         pharmacy.setIdPharmacy(pharmacyRequest.getIdPharmacy());
+        int status = 1;
+        pharmacy.setStatus(status);
         pharmacy = pharmacyRepository.save(pharmacy);
         pharmacyRequest = setPharmacyRequest(pharmacyRequest,pharmacy);
 
@@ -61,7 +63,7 @@ public class PharmacyService {
     public void delete(int idPharmacy, Transaction transaction){
         Pharmacy pharmacy = new Pharmacy();
         int status = 0;
-       // hospitalRepository.updateStatus(status,idHospital);
+       // hospitalRepository.updateStatus(status,idHospital)
     }
     public Pharmacy setPharmacy(PharmacyRequest pharmacyRequest, Pharmacy pharmacy){
         pharmacy.setIdDepartment(pharmacyRequest.getIdDepartment());
