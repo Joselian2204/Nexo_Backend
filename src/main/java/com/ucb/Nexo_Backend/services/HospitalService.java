@@ -42,6 +42,8 @@ public class HospitalService {
         hospital.setIdHospital(hospitalRequest.getIdHospital());
         hospital.setStatus(status);
         setTransaction(hospital,transaction);
+        int status = 1;
+        hospital.setStatus(status);
         hospitalRepository.save(hospital);
         hospitalRequest = setHospitalRequest(hospitalRequest,hospital);
         return hospitalRequest;
