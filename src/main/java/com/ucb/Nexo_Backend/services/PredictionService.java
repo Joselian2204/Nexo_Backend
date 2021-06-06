@@ -24,27 +24,79 @@ public class PredictionService {
         this.repo1 = repo1;
         this.repo2 =repo2;
     }
-    public List<PredictionRequest> getByDateCountryId(String id,Integer cant,Integer filter){
+
+
+    //ar1
+    public List<PredictionRequest> getAR1ByDateCountryId(String id,Integer cant,Integer filter){
         List<CountryCases> listcases= new ArrayList<>();
         listcases= repo.findByCountryIdOrderByDateAsc(id);
-        List<PredictionRequest> listcasespredic= PredictionUtil.predictionCAR1(listcases,cant,filter);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionCAR1(listcases,cant,filter,1);
         return listcasespredic;
 
     }
-    public List<PredictionRequest> getByDateDepartmentId(String id,Integer cant,Integer filter){
+    public List<PredictionRequest> getAR1ByDateDepartmentId(String id,Integer cant,Integer filter){
         List<DepartmentCases> listcases1= new ArrayList<>();
         listcases1 = repo1.findByDepartmentIdOrderByDate(id);
-        List<PredictionRequest> listcasespredic2= PredictionUtil.predictionDAR1(listcases1,cant,filter);
+        List<PredictionRequest> listcasespredic2= PredictionUtil.predictionDAR1(listcases1,cant,filter,1);
         return listcasespredic2;
 
     }
-    public List<PredictionRequest> getByDateMunicipalityId(String id,Integer cant,Integer filter){
+    public List<PredictionRequest> getAR1ByDateMunicipalityId(String id,Integer cant,Integer filter){
         List<MunicipalityCases> listcases2= new ArrayList<>();
         listcases2= repo2.findByRegionIdOrderByDateAsc(id);
-        List<PredictionRequest> listcasespredic3= PredictionUtil.predictionMAR1(listcases2,cant,filter);
+        List<PredictionRequest> listcasespredic3= PredictionUtil.predictionMAR1(listcases2,cant,filter,1);
         return listcasespredic3;
 
     }
+
+    //ar2
+    public List<PredictionRequest> getAR2ByDateCountryId(String id,Integer cant,Integer filter){
+        List<CountryCases> listcases= new ArrayList<>();
+        listcases= repo.findByCountryIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionCAR1(listcases,cant,filter,2);
+        return listcasespredic;
+
+    }
+    public List<PredictionRequest> getAR2ByDateDepartmentId(String id,Integer cant,Integer filter){
+        List<DepartmentCases> listcases1= new ArrayList<>();
+        listcases1 = repo1.findByDepartmentIdOrderByDate(id);
+        List<PredictionRequest> listcasespredic2= PredictionUtil.predictionDAR1(listcases1,cant,filter,2);
+        return listcasespredic2;
+
+    }
+    public List<PredictionRequest> getAR2ByDateMunicipalityId(String id,Integer cant,Integer filter){
+        List<MunicipalityCases> listcases2= new ArrayList<>();
+        listcases2= repo2.findByRegionIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic3= PredictionUtil.predictionMAR1(listcases2,cant,filter,2);
+        return listcasespredic3;
+
+    }
+
+    //arima
+    public List<PredictionRequest> getARIMAByDateCountryId(String id,Integer cant,Integer filter){
+        List<CountryCases> listcases= new ArrayList<>();
+        listcases= repo.findByCountryIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic= PredictionUtil.predictionCAR1(listcases,cant,filter,0);
+        return listcasespredic;
+
+    }
+    public List<PredictionRequest> getARIMAByDateDepartmentId(String id,Integer cant,Integer filter){
+        List<DepartmentCases> listcases1= new ArrayList<>();
+        listcases1 = repo1.findByDepartmentIdOrderByDate(id);
+        List<PredictionRequest> listcasespredic2= PredictionUtil.predictionDAR1(listcases1,cant,filter,0);
+        return listcasespredic2;
+
+    }
+    public List<PredictionRequest> getARIMAByDateMunicipalityId(String id,Integer cant,Integer filter){
+        List<MunicipalityCases> listcases2= new ArrayList<>();
+        listcases2= repo2.findByRegionIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic3= PredictionUtil.predictionMAR1(listcases2,cant,filter,0);
+        return listcasespredic3;
+
+    }
+
+
+
     public List<PredictionRequest> getLinealPredictionByDateCountryId(String id, Integer cant, Integer filter){
         List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
         List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixCountries(listcases,cant, filter);

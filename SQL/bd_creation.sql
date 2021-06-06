@@ -286,6 +286,8 @@ create table h_pharmacy(
                          tx_update datetime NOT NULL);
 
 select * from municipality where id_department="BOL1941";
+
+drop pharmacy
 INSERT INTO pharmacy(id_department,name,location,phone_number,lat,lng,tx_date,tx_id_administrator,tx_host,tx_update) VALUES ('BOL1293','Insumos Trinidad','C. Serafin Rivero','No tiene',-14.82628,-64.8958,NOW(),1,'192.168.1.18',NOW());
 INSERT INTO pharmacy(id_department,name,location,phone_number,lat,lng,tx_date,tx_id_administrator,tx_host,tx_update) VALUES ('BOL1293','Farmacia Trinidad','Av Sim�n Bol�var, Trinidad','No tiene',-14.83911,-64.8973,NOW(),1,'192.168.1.18',NOW());
 INSERT INTO pharmacy(id_department,name,location,phone_number,lat,lng,tx_date,tx_id_administrator,tx_host,tx_update) VALUES ('BOL1293','Farmacia EL CARMEN','Trinidad','59134620921',-14.65983,-64.8047,NOW(),1,'192.168.1.18',NOW());

@@ -20,19 +20,52 @@ public class PredictionController {
 
 
     @GetMapping(value = "/prediction/ar1/country/{id}")
-    public List<PredictionRequest> getCountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
-        return service.getByDateCountryId(id,cant,filter);
+    public List<PredictionRequest> getAR1Countries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR1ByDateCountryId(id,cant,filter);
     }
 
     @GetMapping(value = "/prediction/ar1/department/{id}")
-    public List<PredictionRequest> getDepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
-        return service.getByDateDepartmentId(id,cant,filter);
+    public List<PredictionRequest> getAR1Departments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR1ByDateDepartmentId(id,cant,filter);
     }
 
     @GetMapping(value = "/prediction/ar1/municipio/{id}")
-    public List<PredictionRequest> getMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
-        return service.getByDateMunicipalityId(id,cant,filter);
+    public List<PredictionRequest> getAR1Municipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR1ByDateMunicipalityId(id,cant,filter);
     }
+
+    @GetMapping(value = "/prediction/ar2/country/{id}")
+    public List<PredictionRequest> getAR2Countries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR2ByDateCountryId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/ar2/department/{id}")
+    public List<PredictionRequest> getAR2Departments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR2ByDateDepartmentId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/ar2/municipio/{id}")
+    public List<PredictionRequest> getAR2Municipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getAR2ByDateMunicipalityId(id,cant,filter);
+    }
+
+
+    @GetMapping(value = "/prediction/arima/country/{id}")
+    public List<PredictionRequest> getARIMACountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getARIMAByDateCountryId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/arima/department/{id}")
+    public List<PredictionRequest> getARIMADepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getARIMAByDateDepartmentId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/arima/municipio/{id}")
+    public List<PredictionRequest> getARIMAMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getARIMAByDateMunicipalityId(id,cant,filter);
+    }
+
+
 
     @GetMapping(value = "/prediction/mtx/country/{id}")
     public List<PredictionRequest> getMatrixCountries(@PathVariable String id, @RequestParam Integer cant, @RequestParam Integer filter){
