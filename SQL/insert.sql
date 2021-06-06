@@ -544,9 +544,14 @@ insert into hospital values (null,"BOL1293","Obrero","Miraflores","24568925",12.
 insert into pharmacy values (null,"BOL1293","Obrero","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
 insert into pharmacy values (null,"BOL1293","Chavez","Miraflores","24568925",12.5,5.6,NOW(),1,"192.168.1.18",NOW());
 
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","silvana.munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
-insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","josemar.castro@ucb.edu.bo",1,NOW(),1,"192.168.100.48", NOW());
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","joma@gmail.com",1,NOW(),1,"192.168.100.48", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","ximena.cruz@ucb.edu.bo",1,NOW(),1,"192.168.0.18", NOW());
+
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","joma@gmail.com",1,NOW(),1,"192.168.100.48", NOW());
+
+select * from administrator
+
 create table hibernate_sequences(
                                     sequence_name VARCHAR(255) NOT NULL,
                                     next_val INTEGER NOT NULL

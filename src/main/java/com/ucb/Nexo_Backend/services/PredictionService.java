@@ -4,6 +4,7 @@ import com.ucb.Nexo_Backend.models.CountryCases;
 
 import com.ucb.Nexo_Backend.models.*;
 import com.ucb.Nexo_Backend.repository.*;
+import com.ucb.Nexo_Backend.util.PrediccionLinealUtil;
 import com.ucb.Nexo_Backend.util.PredictionGrayUtil;
 import com.ucb.Nexo_Backend.util.PredictionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,19 +101,19 @@ public class PredictionService {
 
     public List<PredictionRequest> getLinealPredictionByDateCountryId(String id, Integer cant, Integer filter){
         List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
-        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixCountries(listcases,cant, filter);
+        List<PredictionRequest> listcasespredic= PrediccionLinealUtil.predictionMatrixCountries(listcases,cant, filter);
         return listcasespredic;
 
     }
     public List<PredictionRequest> getLinealPredictionByDateDepartmentId(String id, Integer cant, Integer filter){
         List<DepartmentCases>  listcases = repo1.findByDepartmentIdOrderByDate(id);
-        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixDepartments(listcases,cant, filter);
+        List<PredictionRequest> listcasespredic= PrediccionLinealUtil.predictionMatrixDepartments(listcases,cant, filter);
         return listcasespredic;
 
     }
     public List<PredictionRequest> getLinealPredictionByDateMunicipalityId(String id, Integer cant, Integer filter){
         List<MunicipalityCases>  listcases= repo2.findByRegionIdOrderByDateAsc(id);
-        List<PredictionRequest> listcasespredic= PredictionUtil.predictionMatrixMunicipality(listcases,cant, filter);
+        List<PredictionRequest> listcasespredic= PrediccionLinealUtil.predictionMatrixMunicipality(listcases,cant, filter);
         return listcasespredic;
 
     }

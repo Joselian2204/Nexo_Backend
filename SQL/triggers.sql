@@ -166,7 +166,7 @@ CREATE TRIGGER tg_insert_h_administrator
     AFTER INSERT ON administrator
     FOR EACH ROW
 BEGIN
-    INSERT INTO `h_administrator`(`id_h_administrator`,`id_administrator`,`password`,`name`,`last_name`,`email`,`status`,`tx_date`,`tx_id_user`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_administrator,NEW.password,NEW.name,NEW.last_name,NEW.email,NEW.status,NEW.tx_id_user,NOW(),NEW.tx_host,NOW());
+    INSERT INTO `h_administrator`(`id_h_administrator`,`id_administrator`,`password`,`name`,`last_name`,`email`,`status`,`tx_date`,`tx_id_user`,`tx_host`,`tx_update`) VALUES (NULL,NEW.id_administrator,NEW.password,NEW.name,NEW.last_name,NEW.email,NEW.status,NOW(),NEW.tx_id_user,NEW.tx_host,NOW());
 END;
 |
 DELIMITER ;
