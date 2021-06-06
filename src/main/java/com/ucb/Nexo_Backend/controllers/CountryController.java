@@ -51,24 +51,5 @@ public class CountryController {
         System.out.println("Estoy aca");
         return casesService.getAverage(id);
     }
-    /* @PostMapping(path = "/admin/{id}")
-    public HttpStatus uploadFile(@RequestParam("file") MultipartFile file,
-                                 HttpServletRequest request) {
-
-        if (CSVHelper.hasCSVFormat(file)) {
-            try {
-                Transaction transaction = TransactionUtil.createTransaction(request);
-                transactionBl.createTransaction(transaction);
-                covidDataCountryBl.saveData(file,id, transaction);
-
-
-                return HttpStatus.OK;
-            } catch (Exception e) {
-                LOGGER.error(e.getMessage());
-                return HttpStatus.EXPECTATION_FAILED;
-            }
-        }
-        return HttpStatus.BAD_REQUEST;
-    }*/
 
 }
