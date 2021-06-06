@@ -155,6 +155,9 @@ public class PrediccionLinealUtil {
                     y = y + i*betas[j][0];
                 }
             }
+            if(y<0){
+                y = 0;
+            }
             datosXY[i][0] = i;
             datosXY[i][1] = (long) y;
         }

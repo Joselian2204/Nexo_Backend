@@ -547,6 +547,7 @@ insert into pharmacy values (null,"BOL1293","Chavez","Miraflores","24568925",12.
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Silvana","Munoz","munoz@ucb.edu.bo",1,NOW(),1,"192.168.1.18", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","joma@gmail.com",1,NOW(),1,"192.168.100.48", NOW());
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","ximena.cruz@ucb.edu.bo",1,NOW(),1,"192.168.0.18", NOW());
+insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Ximena","Cruz","xime@gmail.com",1,NOW(),1,"192.168.0.18", NOW());
 
 insert into administrator values (null,"$2a$10$xNqp3FoBn13MABpyP.92v.ok1W400fbrJAHsuKUhLACOGkk2AIXfW","Josemar","Castro","joma@gmail.com",1,NOW(),1,"192.168.100.48", NOW());
 
