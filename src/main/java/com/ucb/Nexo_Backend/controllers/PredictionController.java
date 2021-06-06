@@ -82,4 +82,20 @@ public class PredictionController {
 
 
 
+    @GetMapping(value = "/prediction/gray/country/{id}")
+    public List<PredictionRequest> getGRAYCountries(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getGRAYByDateCountryId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/gray/department/{id}")
+    public List<PredictionRequest> getGRAYDepartments(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getGRAYByDateDepartmentId(id,cant,filter);
+    }
+
+    @GetMapping(value = "/prediction/gray/municipio/{id}")
+    public List<PredictionRequest> getGRAYMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
+        return service.getGRAYByDateMunicipalityId(id,cant,filter);
+    }
+
+
 }

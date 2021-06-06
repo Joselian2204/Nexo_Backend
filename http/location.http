@@ -42,14 +42,14 @@ Accept: application/json
 
 
 
-GET http://localhost:8080/prediction/ar2/country/AFG?cant=5&filter=2
+GET http://localhost:8080/prediction/gray/country/AFG?cant=5&filter=2
 Accept: application/json
 ###
 
-GET http://localhost:8080/prediction/arima/department/BOL1293?cant=5&filter=0
+GET http://localhost:8080/prediction/gray/department/BOL1293?cant=5&filter=0
 Accept: application/json
 ###
-GET http://localhost:8080/prediction/arima/municipio/tj0?cant=5&filter=0
+GET http://localhost:8080/prediction/gray/municipio/tj0?cant=5&filter=0
 Accept: application/json
 ###
 GET http://localhost:8080/prediction/mtx/country/AFG?cant=10&filter=1

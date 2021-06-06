@@ -4,6 +4,7 @@ import com.ucb.Nexo_Backend.models.CountryCases;
 
 import com.ucb.Nexo_Backend.models.*;
 import com.ucb.Nexo_Backend.repository.*;
+import com.ucb.Nexo_Backend.util.PredictionGrayUtil;
 import com.ucb.Nexo_Backend.util.PredictionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -115,6 +116,34 @@ public class PredictionService {
         return listcasespredic;
 
     }
+
+
+    public List<PredictionRequest> getGRAYByDateCountryId(String id,Integer cant,Integer filter){
+        List<CountryCases> listcases= new ArrayList<>();
+        listcases= repo.findByCountryIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic= PredictionGrayUtil.predictionCGRAY(listcases,cant,filter);
+        return listcasespredic;
+
+    }
+    public List<PredictionRequest> getGRAYByDateDepartmentId(String id,Integer cant,Integer filter){
+        List<DepartmentCases> listcases1= new ArrayList<>();
+        listcases1 = repo1.findByDepartmentIdOrderByDate(id);
+        List<PredictionRequest> listcasespredic2= PredictionGrayUtil.predictionDGRAY(listcases1,cant,filter);
+        return listcasespredic2;
+
+    }
+    public List<PredictionRequest> getGRAYByDateMunicipalityId(String id,Integer cant,Integer filter){
+        List<MunicipalityCases> listcases2= new ArrayList<>();
+        listcases2= repo2.findByRegionIdOrderByDateAsc(id);
+        List<PredictionRequest> listcasespredic3= PredictionGrayUtil.predictionMGRAY(listcases2,cant,filter);
+        return listcasespredic3;
+
+    }
+
+
+
+
+
 
 }
 
