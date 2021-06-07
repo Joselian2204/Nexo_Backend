@@ -1,7 +1,6 @@
 package com.ucb.Nexo_Backend.repository;
 
 
-import com.ucb.Nexo_Backend.dto.AdministratorRequest;
 import com.ucb.Nexo_Backend.models.Administrator;
 import org.springframework.data.jpa.repository.JpaRepository;
 

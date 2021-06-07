@@ -1,8 +1,6 @@
 package com.ucb.Nexo_Backend.controllers;
 
-import com.ucb.Nexo_Backend.dto.HospitalRequest;
 import com.ucb.Nexo_Backend.dto.PharmacyRequest;
-import com.ucb.Nexo_Backend.models.Pharmacy;
 import com.ucb.Nexo_Backend.models.Transaction;
 import com.ucb.Nexo_Backend.services.PharmacyService;
 import com.ucb.Nexo_Backend.util.AdministratorUtil;

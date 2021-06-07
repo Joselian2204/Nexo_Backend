@@ -1,12 +1,10 @@
 package com.ucb.Nexo_Backend.controllers;
 
 import com.ucb.Nexo_Backend.dto.PredictionRequest;
-import com.ucb.Nexo_Backend.models.*;
 import com.ucb.Nexo_Backend.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
