@@ -42,7 +42,7 @@ public class PrediccionLinealUtil {
             c.setTime(countryCases.getDate());
         }
         double[][] betas = generarBetas(datosx, datosy);
-        long[][] prediccionsucesfull = funcionLineal(betas, cantidad);
+        long[][] prediccionsucesfull = funcionLineal(betas, cantidad,mx);
         for (int i = 0; i < prediccionsucesfull.length; i++) {
             PredictionRequest predictions = new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i][1]);
@@ -86,7 +86,7 @@ public class PrediccionLinealUtil {
             c.setTime(departmentCases.getDate());
         }
         double[][] betas = generarBetas(datosx, datosy);
-        long[][] prediccionsucesfull = funcionLineal(betas, cantidad);
+        long[][] prediccionsucesfull = funcionLineal(betas, cantidad,mx);
         for (int i = 0; i < prediccionsucesfull.length; i++) {
             PredictionRequest predictions = new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i][1]);
@@ -131,7 +131,7 @@ public class PrediccionLinealUtil {
             c.setTime(municipalityCases.getDate());
         }
         double[][] betas = generarBetas(datosx, datosy);
-        long[][] prediccionsucesfull = funcionLineal(betas, cantidad);
+        long[][] prediccionsucesfull = funcionLineal(betas, cantidad,mx);
         for (int i = 0; i < prediccionsucesfull.length; i++) {
             PredictionRequest predictions = new PredictionRequest();
             predictions.setCases(prediccionsucesfull[i][1]);
@@ -144,7 +144,7 @@ public class PrediccionLinealUtil {
         }
         return listprediction;
     }
-    public static long[][] funcionLineal(double[][] betas, int con) {
+    public static long[][] funcionLineal(double[][] betas, int con, int nx) {
         int n = 2;
         long[][] datosXY = new long[con][n];
         for (int i = 0; i < con; i++) {
@@ -159,7 +159,7 @@ public class PrediccionLinealUtil {
             if(y<0){
                 y = 0;
             }
-            datosXY[i][0] = i;
+            datosXY[i][0] = i+nx;
             datosXY[i][1] = (long) y;
         }
         return datosXY;
