@@ -50,7 +50,7 @@ public class PredictionVariables {
             x[indice][0] = 1;
             x[indice][1] = indice + 1;
             if (filter == 0) {
-                y[indice][0] = departmentCases.getActives();
+                y[indice][0] = departmentCases.getNewCases();
             } else if (filter == 1) {
                 y[indice][0] = departmentCases.getDeaths();
             } else if (filter == 2) {
