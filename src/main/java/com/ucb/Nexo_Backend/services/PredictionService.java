@@ -1,4 +1,5 @@
 package com.ucb.Nexo_Backend.services;
+import com.ucb.Nexo_Backend.dto.LinealRequest;
 import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.CountryCases;
 
@@ -7,6 +8,7 @@ import com.ucb.Nexo_Backend.repository.*;
 import com.ucb.Nexo_Backend.util.PrediccionLinealUtil;
 import com.ucb.Nexo_Backend.util.PredictionGrayUtil;
 import com.ucb.Nexo_Backend.util.PredictionUtil;
+import com.ucb.Nexo_Backend.util.PredictionVariables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -138,6 +140,25 @@ public class PredictionService {
         listcases2= repo2.findByRegionIdOrderByDateAsc(id);
         List<PredictionRequest> listcasespredic3= PredictionGrayUtil.predictionMGRAY(listcases2,cant,filter);
         return listcasespredic3;
+
+    }
+
+    public LinealRequest getLinealVPredictionByDateCountryId(String id, Integer filter){
+        List<CountryCases>  listcases= repo.findByCountryIdOrderByDateAsc(id);
+        LinealRequest linealRequest = PredictionVariables.generarBetasCountry(listcases,filter);
+        return linealRequest;
+
+    }
+    public LinealRequest getLinealVPredictionByDateDepartmentId(String id,  Integer filter){
+        List<DepartmentCases>  listcases = repo1.findByDepartmentIdOrderByDate(id);
+        LinealRequest linealRequest = PredictionVariables.generarBetasDepartament(listcases,filter);
+        return linealRequest;
+
+    }
+    public LinealRequest getLinealVPredictionByDateMunicipalityId(String id, Integer filter){
+        List<MunicipalityCases>  listcases= repo2.findByRegionIdOrderByDateAsc(id);
+        LinealRequest linealRequest = PredictionVariables.generarBetasMunicipios(listcases,filter);
+        return linealRequest;
 
     }
 

@@ -1,5 +1,6 @@
 package com.ucb.Nexo_Backend.util;
 
+import com.ucb.Nexo_Backend.dto.LinealRequest;
 import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.models.CountryCases;
 import com.ucb.Nexo_Backend.models.DepartmentCases;
@@ -274,7 +275,6 @@ public class PrediccionLinealUtil {
         double[][] resultado = multiplicacion(multiplicadorB, y);
         return resultado;
     }
-
 
 
 }

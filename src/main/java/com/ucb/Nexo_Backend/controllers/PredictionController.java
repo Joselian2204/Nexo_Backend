@@ -1,5 +1,6 @@
 package com.ucb.Nexo_Backend.controllers;
 
+import com.ucb.Nexo_Backend.dto.LinealRequest;
 import com.ucb.Nexo_Backend.dto.PredictionRequest;
 import com.ucb.Nexo_Backend.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +95,21 @@ public class PredictionController {
     public List<PredictionRequest> getGRAYMunicipality(@PathVariable String id,@RequestParam Integer cant,@RequestParam Integer filter){
         return service.getGRAYByDateMunicipalityId(id,cant,filter);
     }
+
+
+    @GetMapping(value = "/prediction/lineal/country/{id}")
+    public LinealRequest getMatrixCountries(@PathVariable String id, @RequestParam Integer filter){
+        return service.getLinealVPredictionByDateCountryId(id,filter);
+    }
+    @GetMapping(value = "/prediction/lineal/department/{id}")
+    public LinealRequest getMatrixDepartment(@PathVariable String id, @RequestParam Integer filter){
+        return service.getLinealVPredictionByDateDepartmentId(id,filter);
+    }
+    @GetMapping(value = "/prediction/lineal/municipio/{id}")
+    public LinealRequest getMatrixMunicipality(@PathVariable String id, @RequestParam Integer filter){
+        return service.getLinealVPredictionByDateMunicipalityId(id,filter);
+    }
+
 
 
 }
